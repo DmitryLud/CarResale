@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarResaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModelID" Type="Int32" Nullable="false" />
+    <Property Name="VIN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRIM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mileage" Type="Double" Nullable="false" />
+    <Property Name="Transmission" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FuelType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Model" Relationship="Self.FK__Model" FromRole="Cars" ToRole="Models" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Order__Car" FromRole="Cars" ToRole="Orders" />
+    <NavigationProperty Name="ReceiptInvoices" Relationship="Self.FK__ReceiptInvoice__Car" FromRole="Cars" ToRole="ReceiptInvoice" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Customer__ID" FromRole="Customers" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Mark">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mark1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Models" Relationship="Self.FK__Mark" FromRole="Marks" ToRole="Models" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarkID" Type="Int32" Nullable="false" />
+    <Property Name="Model1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="Self.FK__Model" FromRole="Models" ToRole="Cars" />
+    <NavigationProperty Name="Mark" Relationship="Self.FK__Mark" FromRole="Models" ToRole="Marks" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Sale_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__Order__Car" FromRole="Orders" ToRole="Cars" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__ID" FromRole="Orders" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="ReceiptInvoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarID" Type="Int32" Nullable="false" />
+    <Property Name="Date_of_acquisition" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="Other_costs" Type="Decimal" Precision="14" Scale="2" />
+    <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__ReceiptInvoice__Car" FromRole="ReceiptInvoice" ToRole="Cars" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Model">
+    <End Role="Models" Type="Self.Model" Multiplicity="1" />
+    <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Models">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="ModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__Car">
+    <End Role="Cars" Type="Self.Car" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptInvoice__Car">
+    <End Role="Cars" Type="Self.Car" Multiplicity="1" />
+    <End Role="ReceiptInvoice" Type="Self.ReceiptInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceiptInvoice">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__ID">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mark">
+    <End Role="Marks" Type="Self.Mark" Multiplicity="1" />
+    <End Role="Models" Type="Self.Model" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Models">
+        <PropertyRef Name="MarkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarResaleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="Self.Car" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Marks" EntityType="Self.Mark" />
+    <EntitySet Name="Models" EntityType="Self.Model" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="ReceiptInvoices" EntityType="Self.ReceiptInvoice" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__Model" Association="Self.FK__Model">
+      <End Role="Models" EntitySet="Models" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__Car" Association="Self.FK__Order__Car">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptInvoice__Car" Association="Self.FK__ReceiptInvoice__Car">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="ReceiptInvoice" EntitySet="ReceiptInvoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__ID" Association="Self.FK__Customer__ID">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mark" Association="Self.FK__Mark">
+      <End Role="Marks" EntitySet="Marks" />
+      <End Role="Models" EntitySet="Models" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

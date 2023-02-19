@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CarResaleModelContainer" CdmEntityContainer="CarResaleEntities">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="CarResaleModel.Car">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="TRIM" ColumnName="TRIM" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+          <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CarResaleModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marks">
+      <EntityTypeMapping TypeName="CarResaleModel.Mark">
+        <MappingFragment StoreEntitySet="Marks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Mark1" ColumnName="Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="CarResaleModel.Model">
+        <MappingFragment StoreEntitySet="Models">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MarkID" ColumnName="MarkID" />
+          <ScalarProperty Name="Model1" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="CarResaleModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Sale_date" ColumnName="Sale date" />
+          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptInvoices">
+      <EntityTypeMapping TypeName="CarResaleModel.ReceiptInvoice">
+        <MappingFragment StoreEntitySet="ReceiptInvoice">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="Date_of_acquisition" ColumnName="Date of acquisition" />
+          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
+          <ScalarProperty Name="Other_costs" ColumnName="Other costs" />
+          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CarResaleModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

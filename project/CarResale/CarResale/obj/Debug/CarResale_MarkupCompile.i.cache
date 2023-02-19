@@ -1,0 +1,20 @@
+﻿CarResale
+
+
+winexe
+C#
+.cs
+D:\Car Resale\project\CarResale\CarResale\obj\Debug\
+CarResale
+none
+false
+DEBUG;TRACE
+D:\Car Resale\project\CarResale\CarResale\App.xaml
+151432589753
+24195065
+281682684073
+181054671969
+MainWindow.xaml;Pages\CarAddPage.xaml;Pages\CarPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientPage.xaml;Pages\MarkAddPage.xaml;Pages\MarkPage.xaml;Pages\ModelAddPage.xaml;Pages\ModelPage.xaml;Pages\OrderAddPage.xaml;Pages\OrderPage.xaml;Pages\ReceiptInvoiceAddPage.xaml;Pages\ReceiptInvoicePage.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;
+
+True
+

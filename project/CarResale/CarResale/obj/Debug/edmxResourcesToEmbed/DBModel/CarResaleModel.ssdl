@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CarResaleModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelID" Type="int" Nullable="false" />
+    <Property Name="VIN" Type="varchar" MaxLength="17" Nullable="false" />
+    <Property Name="TRIM" Type="varchar" MaxLength="30" />
+    <Property Name="Year" Type="date" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Mileage" Type="float" Nullable="false" />
+    <Property Name="Transmission" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="FuelType" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Models">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarkID" Type="int" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="Sale date" Type="date" Nullable="false" />
+    <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReceiptInvoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarID" Type="int" Nullable="false" />
+    <Property Name="Date of acquisition" Type="date" Nullable="false" />
+    <Property Name="Acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="Other costs" Type="decimal" Precision="14" Scale="2" />
+    <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Customer__ID">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mark">
+    <End Role="Marks" Type="Self.Marks" Multiplicity="1" />
+    <End Role="Models" Type="Self.Models" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Models">
+        <PropertyRef Name="MarkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Model">
+    <End Role="Models" Type="Self.Models" Multiplicity="1" />
+    <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Models">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="ModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__Car">
+    <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptInvoice__Car">
+    <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+    <End Role="ReceiptInvoice" Type="Self.ReceiptInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReceiptInvoice">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CarResaleModelContainer">
+    <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceiptInvoice" EntityType="Self.ReceiptInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Customer__ID" Association="Self.FK__Customer__ID">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mark" Association="Self.FK__Mark">
+      <End Role="Marks" EntitySet="Marks" />
+      <End Role="Models" EntitySet="Models" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Model" Association="Self.FK__Model">
+      <End Role="Models" EntitySet="Models" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__Car" Association="Self.FK__Order__Car">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptInvoice__Car" Association="Self.FK__ReceiptInvoice__Car">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="ReceiptInvoice" EntitySet="ReceiptInvoice" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
