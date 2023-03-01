@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarResale.DBModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,11 @@ using System.Windows.Shapes;
 
 namespace CarResale.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для CarPage.xaml
-    /// </summary>
     public partial class CarPage : Page
     {
         public CarPage()
         {
-            InitializeComponent();
+
         }
     }
 }

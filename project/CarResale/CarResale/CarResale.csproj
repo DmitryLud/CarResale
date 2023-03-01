@@ -170,6 +170,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manager.cs" />
     <Compile Include="Pages\CarAddPage.xaml.cs">
       <DependentUpon>CarAddPage.xaml</DependentUpon>
     </Compile>
@@ -240,6 +241,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Database\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>

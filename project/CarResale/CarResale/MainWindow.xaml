@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:CarResale"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="960" Width="1280">
+        Title="MainWindow" Height="960" Width="1280"
+        MinHeight="800" MinWidth="980">
     <Grid x:Name="MainGrid" Style="{StaticResource MainGridBackground}">
 
         <Grid.ColumnDefinitions>
@@ -19,8 +20,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#FF2B2A2A"
-              Opacity="0.2"/>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#303942"
+              Effect="{DynamicResource DropShadowEffectDown}"/>
+
+        <Grid Grid.Row="1" Grid.Column="0" Background="#303942"
+              Effect="{DynamicResource DropShadowEffectRight}"/>
 
         <TextBlock Grid.Row="0" Grid.Column="0" 
                    FontSize="32" FontWeight="Black"

@@ -9,6 +9,35 @@
       Title="MarkAddPage">
 
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Label Content="Mark" Height="20" />
+            <TextBox x:Name="MarkTB" Width="140" Height="20"
+                     Text="{Binding Mark1}"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Button x:Name="SaveBtn" Content="Save" 
+                    Height="30" Width="120"/>
+            <Button x:Name="CancelBtn" Content="Cancel" 
+                    Height="30" Width="120"
+                    Margin="10,0,0,0"/>
+
+        </StackPanel>
         
     </Grid>
 </Page>

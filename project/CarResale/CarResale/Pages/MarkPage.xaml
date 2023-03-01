@@ -27,6 +27,59 @@
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button x:Name="AddBtn" Content="Add"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                <Button x:Name="ChangeBtn" Content="Change"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                <Button x:Name="DeleteBtn" Content="Delete"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <TextBox x:Name="SearchTB" Margin="10,0,10,0"
+                         Height="30" Width="260"/>
+
+                <Button x:Name="SearchBtn" Content="Search"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="Filter" Margin="0,20,0,10"/>
+
+                <Label Content="First symbol"
+                       Width="120"/>
+                <ComboBox x:Name="FirstSymbolCB"
+                          Width="120" Height="20"/>
+
+                <Button x:Name="ClearBtn" Content="Clear"
+                        Height="30" Width="120"
+                        Margin="0,30,0,0"/>
+
+            </StackPanel>
+
+        </Grid>
         
     </Grid>
 </Page>

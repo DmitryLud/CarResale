@@ -24,14 +24,26 @@ namespace CarResale
         {
             InitializeComponent();
 
-            CarsBtn.Click += (s, e) => { MainFrame.Navigate(new Pages.CarPage()); };
-            MarksBtn.Click += (s, e) => { MainFrame.Navigate(new Pages.MarkPage()); };
+            CarsBtn.Click += (s, e) => SetPage(new Pages.CarPage(), "Cars");
+            MarksBtn.Click += (s, e) => SetPage(new Pages.MarkPage(), "Marks");
+            ModelsBtn.Click += (s, e) => SetPage(new Pages.ModelPage(), "Models");
+            ClientsBtn.Click += (s, e) => SetPage(new Pages.ClientPage(), "Clients");
+            OrdersBtn.Click += (s, e) => SetPage(new Pages.OrderPage(), "Orders");
+            ReceiptInvoiceBtn.Click += (s, e) => SetPage(new Pages.ReceiptInvoicePage(), "Receipt Invoice");
+            //ReportsBtn.Click += (s, e) => SetPage(new Pages.(), "Reports");
 
             ThemeBtn.Click += (s, e) =>
             {
                 ((App)Application.Current).ChangeTheme();
             };
-
+            Manager.MainFrame = MainFrame;
         }
+
+        public void SetPage(Page newPage, string pageName)
+        {
+            MainFrame.Navigate(newPage);
+            CurrentPageName.Text = pageName;
+        }
+
     }
 }

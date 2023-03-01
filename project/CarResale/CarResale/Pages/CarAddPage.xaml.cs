@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CarResale.DBModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,14 +17,12 @@ using System.Windows.Shapes;
 
 namespace CarResale.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для CarAddPage.xaml
-    /// </summary>
     public partial class CarAddPage : Page
     {
+        private Model _current = new Model();
         public CarAddPage()
         {
-            InitializeComponent();
+
         }
     }
 }
