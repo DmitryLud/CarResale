@@ -30,6 +30,7 @@ namespace CarResale.Pages
             ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as Model)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaultItemSource(); };
+            SearchBtn.Click += (s, e) => { Search(); };
 
             for (char symbol = 'A'; symbol <= 'Z'; symbol++)
             {
@@ -53,8 +54,13 @@ namespace CarResale.Pages
 
         private void SelectedMark()
         {
-            var selectedItem = CarResaleEntities.GetContext().Marks.ToList().Where(x=> x.Mark1 == MarkCB.Text).ToList()[0].ID;
+            int selectedItem = (MarkCB.SelectedItem as Mark).ID;
             DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList().Where(x => x.MarkID == selectedItem);
+        }
+
+        private void Search()
+        {
+            DG.ItemsSource = CarResaleEntities.GetContext().Models.Where(x=>x.Model1.Contains(SearchTB.Text)).ToList();
         }
 
         private void Delete()

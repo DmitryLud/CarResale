@@ -50,13 +50,23 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type TextBox}">
+    <!--<Style TargetType="{x:Type TextBox}">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="#282D33"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="BorderBrush" Value="White"/>
+    </Style>-->
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontFamily" Value="Halvetica" />
+        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="{x:Type ComboBox}">
