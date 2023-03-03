@@ -16,20 +16,18 @@ using System.Windows.Shapes;
 
 namespace CarResale.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для ModelPage.xaml
-    /// </summary>
     public partial class ModelPage : Page
     {
         public ModelPage()
         {
             InitializeComponent();
-            SetDefaultItemSource();
+
+            DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList();
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage()); };
             ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as Model)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
-            ClearBtn.Click += (s, e) => { SetDefaultItemSource(); };
+            ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };
 
             for (char symbol = 'A'; symbol <= 'Z'; symbol++)
@@ -41,26 +39,33 @@ namespace CarResale.Pages
             FirstSymbolCB.SelectionChanged += (s, e) => { SelectedSymbol(); };
             MarkCB.SelectionChanged += (s, e) => { SelectedMark(); };
         }
-        private void SetDefaultItemSource()
+        private void SetDefaulFilter()
         {
             DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList();
+
+            SearchTB.Text = null;
+            FirstSymbolCB.Text = null;
+            MarkCB.Text = null;
+
         }
 
         private void SelectedSymbol()
         {
+            if(FirstSymbolCB.SelectedValue == null) return;
             char selectedItem = FirstSymbolCB.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()[0];
-            DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList().Where(x => x.Model1[0] == selectedItem);
+            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x => x.Model1[0] == selectedItem).ToList();
         }
 
         private void SelectedMark()
         {
+            if (MarkCB.SelectedValue == null) return;
             int selectedItem = (MarkCB.SelectedItem as Mark).ID;
-            DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList().Where(x => x.MarkID == selectedItem);
+            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x => x.MarkID == selectedItem).ToList();
         }
 
         private void Search()
         {
-            DG.ItemsSource = CarResaleEntities.GetContext().Models.Where(x=>x.Model1.Contains(SearchTB.Text)).ToList();
+            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x=>x.Model1.Contains(SearchTB.Text)).ToList();
         }
 
         private void Delete()

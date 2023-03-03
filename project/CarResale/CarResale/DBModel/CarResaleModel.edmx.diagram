@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="323e7db6252f4529a25fbfa19b9fa61f" Name="Diagram1">
-        <EntityTypeShape EntityType="CarResaleModel.Car" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.Customer" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.Mark" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.Model" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.Order" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ReceiptInvoice" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.Car" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.Customer" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.Mark" Width="1.5" PointX="1" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.Model" Width="1.5" PointX="3.125" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.Order" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ReceiptInvoice" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.sysdiagram" Width="1.5" PointX="1.125" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="CarResaleModel.FK__Model" ManuallyRouted="false" />
         <AssociationConnector Association="CarResaleModel.FK__Order__Car" ManuallyRouted="false" />
         <AssociationConnector Association="CarResaleModel.FK__ReceiptInvoice__Car" ManuallyRouted="false" />

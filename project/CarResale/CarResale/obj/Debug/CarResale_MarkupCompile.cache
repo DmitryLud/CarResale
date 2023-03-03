@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\
+D:\Car Resale\project\CarResale\CarResale\obj\Debug\
 CarResale
 none
 false
 DEBUG;TRACE
-D:\CarResale\CarResale\project\CarResale\CarResale\App.xaml
-15-113212993
-2-41519359
-28-961755440
-18-2117700083
+D:\Car Resale\project\CarResale\CarResale\App.xaml
+151432589753
+24195065
+28-490415020
+181054671969
 MainWindow.xaml;Pages\CarAddPage.xaml;Pages\CarPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientPage.xaml;Pages\MarkAddPage.xaml;Pages\MarkPage.xaml;Pages\ModelAddPage.xaml;Pages\ModelPage.xaml;Pages\OrderAddPage.xaml;Pages\OrderPage.xaml;Pages\ReceiptInvoiceAddPage.xaml;Pages\ReceiptInvoicePage.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;
 
 False

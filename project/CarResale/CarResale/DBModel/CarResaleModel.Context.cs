@@ -20,16 +20,13 @@ namespace CarResale.DBModel
             : base("name=CarResaleEntities")
         {
         }
-
+    
         public static CarResaleEntities GetContext()
         {
-            if(_context == null)
-            {
-                _context = new CarResaleEntities();
-            }
+            if(_context == null) _context = new CarResaleEntities();
             return _context;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
