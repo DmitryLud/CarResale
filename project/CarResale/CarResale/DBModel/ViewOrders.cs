@@ -12,21 +12,12 @@ namespace CarResale.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class ViewOrders
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
-        {
-            this.Orders = new HashSet<Order>();
-        }
-    
         public int ID { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public int CarID { get; set; }
+        public int CustomerID { get; set; }
+        public System.DateTime Sale_date { get; set; }
+        public decimal Sale_price { get; set; }
     }
 }

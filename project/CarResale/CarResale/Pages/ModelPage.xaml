@@ -22,7 +22,7 @@
         <DataGrid x:Name="DG" AutoGenerateColumns="False"
                   Margin="20">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Model" Binding="{Binding Model1}"
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -75,7 +75,7 @@
                        Width="120"/>
                 <ComboBox x:Name="MarkCB"
                           Width="120" Height="20"
-                          DisplayMemberPath="Mark1"/>
+                          DisplayMemberPath="Mark"/>
 
                 <Button x:Name="ClearBtn" Content="Clear"
                         Height="30" Width="120"

@@ -14,13 +14,19 @@ namespace CarResale.DBModel
     
     public partial class ReceiptInvoice
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ReceiptInvoice()
+        {
+            this.Cars = new HashSet<Cars>();
+        }
+    
         public int ID { get; set; }
-        public int CarID { get; set; }
         public System.DateTime Date_of_acquisition { get; set; }
         public decimal Acquisistion_price { get; set; }
         public Nullable<decimal> Other_costs { get; set; }
         public decimal Total_acquisistion_price { get; set; }
     
-        public virtual Car Car { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cars> Cars { get; set; }
     }
 }

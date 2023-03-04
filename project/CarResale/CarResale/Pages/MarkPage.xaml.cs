@@ -25,7 +25,7 @@ namespace CarResale.Pages
             SetDefaultItemSource();
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage()); };
-            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage(DG.SelectedItem as Mark)); };
+            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage(DG.SelectedItem as Marks)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaultItemSource(); };
 
@@ -46,14 +46,14 @@ namespace CarResale.Pages
         private void SelectedSymbol()
         {
             char selectedItem = FirstSymbolCB.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()[0];
-            DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList().Where(x => x.Mark1[0] == selectedItem);
+            DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList().Where(x => x.Mark[0] == selectedItem);
         }
 
         private void Delete()
         {
             if (MessageBox.Show("Вы точно хотите удалить выбранные элементы?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;
 
-            var selectedItems = DG.SelectedItems.Cast<Mark>().ToList();
+            var selectedItems = DG.SelectedItems.Cast<Marks>().ToList();
 
             try
             {

@@ -10,7 +10,125 @@
 
     <Grid>
 
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Информация об автомобиле"
+                   Grid.Row="0" Grid.Column="0"/>
+
+        <TextBlock Text="Информация о приходной накладной"
+                   Grid.Row="0" Grid.Column="1"/>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <StackPanel
+                HorizontalAlignment="Center">
+                <Label Content="VIN" Height="20"/>
+                <TextBox x:Name="VINTB" Width="140" Height="20"
+                         Text="{Binding VIN}"/>
+
+                <Label Content="Марка" Height="20" Margin="0,10,0,0"/>
+                <ComboBox x:Name="MarkCB" Width="140" Height="20"
+                         DisplayMemberPath="Mark" SelectedItem="{Binding Mark}"/>
+
+                <Label Content="Модель" Height="20" />
+                <ComboBox x:Name="ModelCB" Width="140" Height="20"
+                         SelectedItem="{Binding Model}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Margin="0,10,10,0">
+                    
+                    <Label Content="Комплектация" Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="TrimTB" Width="140" Height="20"
+                     Text="{Binding Trim}"/>
+
+                    <Label Content="Год выпуска" Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="YearTB" Width="140" Height="20"
+                     Text="{Binding Year, StringFormat=D}"
+                     MaxLength="4"/>
+
+                    <Label Content="Цвет" Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="ColorTB" Width="140" Height="20"
+                     Text="{Binding Color}"/>
+                    
+                </StackPanel>
+
+                <StackPanel Margin="10,10,0,0">
+                    
+                    <Label Content="Километраж" Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="MileageTB" Width="140" Height="20"
+                     Text="{Binding Mileage}"/>
+
+                    <Label Content="Вид коробки передач" Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="TransmissionTB" Width="140" Height="20"
+                     Text="{Binding Transmission}"/>
+
+                    <Label Content="Вид " Height="20" Margin="0,10,0,0"/>
+                    <TextBox x:Name="FuelTypeTB" Width="140" Height="20"
+                     Text="{Binding FuelType}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <Label Content="Дата поступления" Height="20" Margin="0,10,0,0"/>
+                <TextBox x:Name="DateOfAcquisitionTB" Width="140" Height="20"
+                     Text="{Binding ReceiptInvoice.Date_of_acquisition}"/>
+
+                <Label Content="Цена покупки" Height="20" Margin="0,10,0,0"/>
+                <TextBox x:Name="AcquisistionPriceTB" Width="140" Height="20"
+                     Text="{Binding ReceiptInvoice.Acquisistion_price}"/>
+
+                <Label Content="Прочие затраты" Height="20" Margin="0,10,0,0"/>
+                <TextBox x:Name="OtherCostsTB" Width="140" Height="20"
+                     Text="{Binding ReceiptInvoice.Other_costs}"/>
+
+                <Label Content="Итоговая цена покупки" Height="20" Margin="0,10,0,0"/>
+                <TextBox x:Name="TotalAcquisistionPriceTB" Width="140" Height="20"
+                     IsReadOnly="True"    
+                     Text="{Binding ReceiptInvoice.Total_acquisistion_price}"/>
+
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Button x:Name="SaveBtn" Content="Save" 
+                    Height="30" Width="120"/>
+            <Button x:Name="CancelBtn" Content="Cancel" 
+                    Height="30" Width="120"
+                    Margin="10,0,0,0"/>
+
+        </StackPanel>
 
     </Grid>
 </Page>

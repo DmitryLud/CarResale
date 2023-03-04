@@ -12,15 +12,10 @@ namespace CarResale.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class ViewModelS
     {
         public int ID { get; set; }
-        public int CarID { get; set; }
-        public int CustomerID { get; set; }
-        public System.DateTime Sale_date { get; set; }
-        public decimal Sale_price { get; set; }
-    
-        public virtual Car Car { get; set; }
-        public virtual Customer Customer { get; set; }
+        public int MarkID { get; set; }
+        public string Model { get; set; }
     }
 }

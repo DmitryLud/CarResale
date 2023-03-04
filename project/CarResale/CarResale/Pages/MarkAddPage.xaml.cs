@@ -22,8 +22,8 @@ namespace CarResale.Pages
     /// </summary>
     public partial class MarkAddPage : Page
     {
-        private Mark _current = new Mark();
-        public MarkAddPage(Mark selected = null)
+        private Marks _current = new Marks();
+        public MarkAddPage(Marks selected = null)
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace CarResale.Pages
         private void SaveData()
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_current.Mark1))
+            if (string.IsNullOrWhiteSpace(_current.Mark))
                 errors.AppendLine("Введите название марки автомобиля");
 
             if (errors.Length > 0)

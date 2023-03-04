@@ -12,18 +12,8 @@ namespace CarResale.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Mark
+    public partial class CarTrims
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mark()
-        {
-            this.Models = new HashSet<Model>();
-        }
-    
-        public int ID { get; set; }
-        public string Mark1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Model> Models { get; set; }
+        public string TRIM { get; set; }
     }
 }

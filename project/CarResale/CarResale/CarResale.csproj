@@ -72,7 +72,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBModel\Car.cs">
+    <Compile Include="DBModel\ArchiveOrders.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CarColors.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\CarResaleModel.Context.cs">
@@ -90,22 +93,64 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Customer.cs">
+    <Compile Include="DBModel\Cars.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Mark.cs">
+    <Compile Include="DBModel\CarTrims.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Model.cs">
+    <Compile Include="DBModel\Customers.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Order.cs">
+    <Compile Include="DBModel\DailyReport.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Marks.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Models.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\MonthlyReport.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Orders.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ReceiptInvoice.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\sysdiagram.cs">
+    <Compile Include="DBModel\SpecificDayReport_Result.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SpecificPeriodReport_Result.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sp_helpdiagrams_Result.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sysdiagrams.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewCars.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewCustomers.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewMarkS.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewModelS.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewOrders.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewReceiptInvoice.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -245,19 +290,19 @@
     <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DBModel\CarResaleModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarResaleModel.Context.cs</LastGenOutput>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
+      <LastGenOutput>CarResaleModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DBModel\CarResaleModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
       <LastGenOutput>CarResaleModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

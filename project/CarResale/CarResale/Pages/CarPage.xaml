@@ -24,8 +24,8 @@
                   Margin="20">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="VIN" Binding="{Binding VIN}"/>
-                <DataGridTextColumn Header="Марка" Binding="{Binding Mark.Mark1}"/>
-                <DataGridTextColumn Header="Модель" Binding="{Binding Model.Model1}"/>
+                <DataGridTextColumn Header="Марка" Binding="{Binding Marks.Mark}"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Models.Model}"/>
                 <DataGridTextColumn Header="Тип двигателя" Binding="{Binding FuelType}"/>
                 <DataGridTextColumn Header="Комплектация" Binding="{Binding Trim}"/>
                 <DataGridTextColumn Header="Год выпуска" Binding="{Binding Year}"/>
@@ -78,14 +78,12 @@
                 <Label Content="Марка"
                        Width="120"/>
                 <ComboBox x:Name="MarkCB"
-                          Width="120" Height="20"
-                          DisplayMemberPath="Mark1"/>
+                          Width="120" Height="20"/>
 
                 <Label Content="Модель"
                        Width="120"/>
                 <ComboBox x:Name="ModelCB"
-                          Width="120" Height="20"
-                          DisplayMemberPath="Model1"/>
+                          Width="120" Height="20"/>
 
                 <Label Content="Тип двигателя"
                        Width="120"/>

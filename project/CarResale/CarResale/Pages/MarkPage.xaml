@@ -23,7 +23,7 @@
         <DataGrid x:Name="DG" AutoGenerateColumns="False"
                   Margin="20" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mark" Binding="{Binding Mark1}"
+                <DataGridTextColumn Header="Mark" Binding="{Binding Mark}"
                                     Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

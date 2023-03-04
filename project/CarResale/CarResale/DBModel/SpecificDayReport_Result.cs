@@ -10,22 +10,17 @@
 namespace CarResale.DBModel
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Model
+    public partial class SpecificDayReport_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Model()
-        {
-            this.Cars = new HashSet<Car>();
-        }
-    
-        public int ID { get; set; }
-        public int MarkID { get; set; }
-        public string Model1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Car> Cars { get; set; }
-        public virtual Mark Mark { get; set; }
+        public string VIN { get; set; }
+        public string Mark { get; set; }
+        public string Model { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public decimal Acquisistion_price { get; set; }
+        public decimal Total_acquisistion_price { get; set; }
+        public decimal Sale_price { get; set; }
+        public Nullable<decimal> Financial_result { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace CarResale.Pages
             DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList();
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage()); };
-            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as Model)); };
+            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as Models)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };
@@ -53,32 +53,32 @@ namespace CarResale.Pages
         {
             if(FirstSymbolCB.SelectedValue == null) return;
             char selectedItem = FirstSymbolCB.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()[0];
-            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x => x.Model1[0] == selectedItem).ToList();
+            DG.ItemsSource = (DG.ItemsSource as List<Models>).Where(x => x.Model[0] == selectedItem).ToList();
         }
 
         private void SelectedMark()
         {
             if (MarkCB.SelectedValue == null) return;
-            int selectedItem = (MarkCB.SelectedItem as Mark).ID;
-            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x => x.MarkID == selectedItem).ToList();
+            int selectedItem = (MarkCB.SelectedItem as Marks).ID;
+            DG.ItemsSource = (DG.ItemsSource as List<Models>).Where(x => x.MarkID == selectedItem).ToList();
         }
 
         private void Search()
         {
-            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x=>x.Model1.Contains(SearchTB.Text)).ToList();
+            DG.ItemsSource = (DG.ItemsSource as List<Models>).Where(x=>x.Model.Contains(SearchTB.Text)).ToList();
         }
 
         private void Delete()
         {
             if (MessageBox.Show("Вы точно хотите удалить выбранные элементы?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;
 
-            var selectedItems = DG.SelectedItems.Cast<Mark>().ToList();
+            var selectedItems = DG.SelectedItems.Cast<Models>().ToList();
 
             try
             {
-                CarResaleEntities.GetContext().Marks.RemoveRange(selectedItems);
+                CarResaleEntities.GetContext().Models.RemoveRange(selectedItems);
                 CarResaleEntities.GetContext().SaveChanges();
-                DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList();
+                DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList();
                 MessageBox.Show("Данные успешно удалены!");
             }
             catch (Exception ex)

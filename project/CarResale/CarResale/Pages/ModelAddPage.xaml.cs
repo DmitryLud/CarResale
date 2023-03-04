@@ -22,8 +22,8 @@ namespace CarResale.Pages
     /// </summary>
     public partial class ModelAddPage : Page
     {
-        private Model _current = new Model();
-        public ModelAddPage(Model selected = null)
+        private Models _current = new Models();
+        public ModelAddPage(Models selected = null)
         {
             InitializeComponent();
 
@@ -42,9 +42,9 @@ namespace CarResale.Pages
         private void SaveData()
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_current.Model1))
-                errors.AppendLine("Введите название марки автомобиля");
-            if(_current.Mark == null)
+            if (string.IsNullOrWhiteSpace(_current.Model))
+                errors.AppendLine("Введите название модели");
+            if(_current.Marks == null)
                 errors.AppendLine("Выберите марку автомобиля");
             if (errors.Length > 0)
             {
