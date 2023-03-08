@@ -39,12 +39,13 @@
                 <TextBox x:Name="VINTB" Width="140" Height="20"
                          Text="{Binding VIN}"/>
 
-                <Label Content="Марка" Height="20" Margin="0,10,0,0"/>
+                <Label Content="Марка" Height="30" Margin="0,10,0,0"/>
                 <ComboBox x:Name="MarkCB" Width="140" Height="20"
-                         DisplayMemberPath="Mark" SelectedItem="{Binding Mark}"/>
+                         DisplayMemberPath="Name" SelectedItem="{Binding Model.Mark}"/>
 
-                <Label Content="Модель" Height="20" />
+                <Label Content="Модель" Height="30" />
                 <ComboBox x:Name="ModelCB" Width="140" Height="20"
+                         DisplayMemberPath="Name"
                          SelectedItem="{Binding Model}"/>
             </StackPanel>
 
@@ -52,32 +53,32 @@
 
                 <StackPanel Margin="0,10,10,0">
                     
-                    <Label Content="Комплектация" Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Комплектация" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="TrimTB" Width="140" Height="20"
-                     Text="{Binding Trim}"/>
+                     Text="{Binding TRIM}"/>
 
-                    <Label Content="Год выпуска" Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Год выпуска" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="YearTB" Width="140" Height="20"
                      Text="{Binding Year, StringFormat=D}"
                      MaxLength="4"/>
 
-                    <Label Content="Цвет" Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Цвет" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="ColorTB" Width="140" Height="20"
                      Text="{Binding Color}"/>
                     
                 </StackPanel>
 
-                <StackPanel Margin="10,10,0,0">
+                <StackPanel Margin="20,10,0,0">
                     
-                    <Label Content="Километраж" Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Километраж" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="MileageTB" Width="140" Height="20"
                      Text="{Binding Mileage}"/>
 
-                    <Label Content="Вид коробки передач" Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Вид коробки передач" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="TransmissionTB" Width="140" Height="20"
                      Text="{Binding Transmission}"/>
 
-                    <Label Content="Вид " Height="20" Margin="0,10,0,0"/>
+                    <Label Content="Тип двигателя" Height="30" Margin="0,10,0,0"/>
                     <TextBox x:Name="FuelTypeTB" Width="140" Height="20"
                      Text="{Binding FuelType}"/>
 
@@ -95,22 +96,22 @@
 
             <StackPanel>
 
-                <Label Content="Дата поступления" Height="20" Margin="0,10,0,0"/>
+                <Label Content="Дата поступления" Height="30" Margin="0,10,0,0"/>
                 <TextBox x:Name="DateOfAcquisitionTB" Width="140" Height="20"
-                     Text="{Binding ReceiptInvoice.Date_of_acquisition}"/>
+                     Text="{Binding Date_of_acquisition, StringFormat={}{0:M/d/yyyy}}"/>
 
-                <Label Content="Цена покупки" Height="20" Margin="0,10,0,0"/>
+                <Label Content="Цена покупки" Height="30" Margin="0,10,0,0"/>
                 <TextBox x:Name="AcquisistionPriceTB" Width="140" Height="20"
-                     Text="{Binding ReceiptInvoice.Acquisistion_price}"/>
+                     Text="{Binding Acquisistion_price}"/>
 
-                <Label Content="Прочие затраты" Height="20" Margin="0,10,0,0"/>
+                <Label Content="Прочие затраты" Height="30" Margin="0,10,0,0"/>
                 <TextBox x:Name="OtherCostsTB" Width="140" Height="20"
-                     Text="{Binding ReceiptInvoice.Other_costs}"/>
+                     Text="{Binding Other_costs}"/>
 
-                <Label Content="Итоговая цена покупки" Height="20" Margin="0,10,0,0"/>
+                <Label Content="Итоговая цена покупки" Height="30" Margin="0,10,0,0"/>
                 <TextBox x:Name="TotalAcquisistionPriceTB" Width="140" Height="20"
                      IsReadOnly="True"    
-                     Text="{Binding ReceiptInvoice.Total_acquisistion_price}"/>
+                     Text="{Binding Total_acquisistion_price}"/>
 
             </StackPanel>
             

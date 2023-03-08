@@ -5,23 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище CarResaleModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ArchiveOrders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="ArchiveOrders">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="CarID" />
-            <PropertyRef Name="CustomerID" />
-            <PropertyRef Name="Sale date" />
-            <PropertyRef Name="Sale price" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="CarID" Type="int" Nullable="false" />
-          <Property Name="CustomerID" Type="int" Nullable="false" />
-          <Property Name="Sale date" Type="date" Nullable="false" />
-          <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Cars">
+        <EntityType Name="Car">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -36,7 +20,7 @@
           <Property Name="Transmission" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="FuelType" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -46,22 +30,22 @@
           <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Marks">
+        <EntityType Name="Mark">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <EntityType Name="Models">
+        <EntityType Name="Model">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MarkID" Type="int" Nullable="false" />
-          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <EntityType Name="Orders">
+        <EntityType Name="Order">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -128,7 +112,7 @@
           <Property Name="Acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-          <Property Name="Financial result" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="FinancialResult" Type="decimal" Precision="15" Scale="2" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.MonthlyReport" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -153,7 +137,33 @@
           <Property Name="Acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-          <Property Name="Financial result" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="FinancialResult" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCar" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewCar">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ModelID" />
+            <PropertyRef Name="ReceiptInvoiceID" />
+            <PropertyRef Name="VIN" />
+            <PropertyRef Name="TRIM" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Mileage" />
+            <PropertyRef Name="Transmission" />
+            <PropertyRef Name="FuelType" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModelID" Type="int" Nullable="false" />
+          <Property Name="ReceiptInvoiceID" Type="int" Nullable="false" />
+          <Property Name="VIN" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="TRIM" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mileage" Type="float" Nullable="false" />
+          <Property Name="Transmission" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FuelType" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCars" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -182,6 +192,22 @@
           <Property Name="FuelType" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCustomer" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewCustomer">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCustomers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="ViewCustomers">
           <Key>
@@ -198,8 +224,18 @@
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewMarkS" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="ViewMarkS">
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewMark" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewMark">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewMarks" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewMarks">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Mark" />
@@ -208,8 +244,20 @@
           <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewModelS" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="ViewModelS">
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewModel" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewModel">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MarkID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewModels" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewModels">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="MarkID" />
@@ -218,6 +266,22 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MarkID" Type="int" Nullable="false" />
           <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewOrder" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CarID" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="Sale date" />
+            <PropertyRef Name="Sale price" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Sale date" Type="date" Nullable="false" />
+          <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewOrders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -252,60 +316,60 @@
         </EntityType>
         <Association Name="FK__Car__ReceiptInvoice">
           <End Role="ReceiptInvoice" Type="Self.ReceiptInvoice" Multiplicity="1" />
-          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReceiptInvoice">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="ReceiptInvoiceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Customer__ID">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Customer">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Mark">
-          <End Role="Marks" Type="Self.Marks" Multiplicity="1" />
-          <End Role="Models" Type="Self.Models" Multiplicity="*" />
+          <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Marks">
+            <Principal Role="Mark">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Models">
+            <Dependent Role="Model">
               <PropertyRef Name="MarkID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Model">
-          <End Role="Models" Type="Self.Models" Multiplicity="1" />
-          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Models">
+            <Principal Role="Model">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="ModelID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Order__Car">
-          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cars">
+            <Principal Role="Car">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="CarID" />
             </Dependent>
           </ReferentialConstraint>
@@ -352,22 +416,13 @@
           <Parameter Name="DateEnd" Type="date" Mode="In" />
         </Function>
         <EntityContainer Name="Хранилище CarResaleModelContainer">
-          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mark" EntityType="Self.Mark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReceiptInvoice" EntityType="Self.ReceiptInvoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ArchiveOrders" EntityType="Self.ArchiveOrders" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ArchiveOrders].[ID] AS [ID], 
-    [ArchiveOrders].[CarID] AS [CarID], 
-    [ArchiveOrders].[CustomerID] AS [CustomerID], 
-    [ArchiveOrders].[Sale date] AS [Sale date], 
-    [ArchiveOrders].[Sale price] AS [Sale price]
-    FROM [dbo].[ArchiveOrders] AS [ArchiveOrders]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="CarColors" EntityType="Self.CarColors" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CarColors].[Color] AS [Color]
@@ -388,7 +443,7 @@
     [DailyReport].[Acquisistion price] AS [Acquisistion price], 
     [DailyReport].[Total acquisistion price] AS [Total acquisistion price], 
     [DailyReport].[Sale price] AS [Sale price], 
-    [DailyReport].[Financial result] AS [Financial result]
+    [DailyReport].[FinancialResult] AS [FinancialResult]
     FROM [dbo].[DailyReport] AS [DailyReport]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="MonthlyReport" EntityType="Self.MonthlyReport" store:Type="Views" store:Schema="dbo">
@@ -402,8 +457,22 @@
     [MonthlyReport].[Acquisistion price] AS [Acquisistion price], 
     [MonthlyReport].[Total acquisistion price] AS [Total acquisistion price], 
     [MonthlyReport].[Sale price] AS [Sale price], 
-    [MonthlyReport].[Financial result] AS [Financial result]
+    [MonthlyReport].[FinancialResult] AS [FinancialResult]
     FROM [dbo].[MonthlyReport] AS [MonthlyReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewCar" EntityType="Self.ViewCar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewCar].[ID] AS [ID], 
+    [ViewCar].[ModelID] AS [ModelID], 
+    [ViewCar].[ReceiptInvoiceID] AS [ReceiptInvoiceID], 
+    [ViewCar].[VIN] AS [VIN], 
+    [ViewCar].[TRIM] AS [TRIM], 
+    [ViewCar].[Year] AS [Year], 
+    [ViewCar].[Color] AS [Color], 
+    [ViewCar].[Mileage] AS [Mileage], 
+    [ViewCar].[Transmission] AS [Transmission], 
+    [ViewCar].[FuelType] AS [FuelType]
+    FROM [dbo].[ViewCar] AS [ViewCar]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewCars" EntityType="Self.ViewCars" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -419,6 +488,15 @@
     [ViewCars].[FuelType] AS [FuelType]
     FROM [dbo].[ViewCars] AS [ViewCars]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ViewCustomer" EntityType="Self.ViewCustomer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewCustomer].[ID] AS [ID], 
+    [ViewCustomer].[Surname] AS [Surname], 
+    [ViewCustomer].[Name] AS [Name], 
+    [ViewCustomer].[Phone] AS [Phone], 
+    [ViewCustomer].[Email] AS [Email]
+    FROM [dbo].[ViewCustomer] AS [ViewCustomer]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ViewCustomers" EntityType="Self.ViewCustomers" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ViewCustomers].[ID] AS [ID], 
@@ -428,18 +506,40 @@
     [ViewCustomers].[Email] AS [Email]
     FROM [dbo].[ViewCustomers] AS [ViewCustomers]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ViewMarkS" EntityType="Self.ViewMarkS" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="ViewMark" EntityType="Self.ViewMark" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [ViewMarkS].[ID] AS [ID], 
-    [ViewMarkS].[Mark] AS [Mark]
-    FROM [dbo].[ViewMarkS] AS [ViewMarkS]</DefiningQuery>
+    [ViewMark].[ID] AS [ID], 
+    [ViewMark].[Name] AS [Name]
+    FROM [dbo].[ViewMark] AS [ViewMark]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ViewModelS" EntityType="Self.ViewModelS" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="ViewMarks" EntityType="Self.ViewMarks" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [ViewModelS].[ID] AS [ID], 
-    [ViewModelS].[MarkID] AS [MarkID], 
-    [ViewModelS].[Model] AS [Model]
-    FROM [dbo].[ViewModelS] AS [ViewModelS]</DefiningQuery>
+    [ViewMarks].[ID] AS [ID], 
+    [ViewMarks].[Mark] AS [Mark]
+    FROM [dbo].[ViewMarks] AS [ViewMarks]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewModel" EntityType="Self.ViewModel" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewModel].[ID] AS [ID], 
+    [ViewModel].[MarkID] AS [MarkID], 
+    [ViewModel].[Name] AS [Name]
+    FROM [dbo].[ViewModel] AS [ViewModel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewModels" EntityType="Self.ViewModels" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewModels].[ID] AS [ID], 
+    [ViewModels].[MarkID] AS [MarkID], 
+    [ViewModels].[Model] AS [Model]
+    FROM [dbo].[ViewModels] AS [ViewModels]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewOrder" EntityType="Self.ViewOrder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewOrder].[ID] AS [ID], 
+    [ViewOrder].[CarID] AS [CarID], 
+    [ViewOrder].[CustomerID] AS [CustomerID], 
+    [ViewOrder].[Sale date] AS [Sale date], 
+    [ViewOrder].[Sale price] AS [Sale price]
+    FROM [dbo].[ViewOrder] AS [ViewOrder]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewOrders" EntityType="Self.ViewOrders" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -461,23 +561,23 @@
           </EntitySet>
           <AssociationSet Name="FK__Car__ReceiptInvoice" Association="Self.FK__Car__ReceiptInvoice">
             <End Role="ReceiptInvoice" EntitySet="ReceiptInvoice" />
-            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Car" EntitySet="Car" />
           </AssociationSet>
           <AssociationSet Name="FK__Customer__ID" Association="Self.FK__Customer__ID">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK__Mark" Association="Self.FK__Mark">
-            <End Role="Marks" EntitySet="Marks" />
-            <End Role="Models" EntitySet="Models" />
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Model" EntitySet="Model" />
           </AssociationSet>
           <AssociationSet Name="FK__Model" Association="Self.FK__Model">
-            <End Role="Models" EntitySet="Models" />
-            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Car" EntitySet="Car" />
           </AssociationSet>
           <AssociationSet Name="FK__Order__Car" Association="Self.FK__Order__Car">
-            <End Role="Cars" EntitySet="Cars" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -485,7 +585,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarResaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Cars">
+        <EntityType Name="Car">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -499,11 +599,11 @@
           <Property Name="Mileage" Type="Double" Nullable="false" />
           <Property Name="Transmission" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FuelType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ReceiptInvoice" Relationship="Self.FK__Car__ReceiptInvoice" FromRole="Cars" ToRole="ReceiptInvoice" />
-          <NavigationProperty Name="Models" Relationship="Self.FK__Model" FromRole="Cars" ToRole="Models" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__Car" FromRole="Cars" ToRole="Orders" />
+          <NavigationProperty Name="ReceiptInvoice" Relationship="Self.FK__Car__ReceiptInvoice" FromRole="Car" ToRole="ReceiptInvoice" />
+          <NavigationProperty Name="Model" Relationship="Self.FK__Model" FromRole="Car" ToRole="Model" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__Car" FromRole="Car" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -512,27 +612,27 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Customer__ID" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Customer__ID" FromRole="Customer" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Marks">
+        <EntityType Name="Mark">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Mark" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Models" Relationship="Self.FK__Mark" FromRole="Marks" ToRole="Models" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Models" Relationship="Self.FK__Mark" FromRole="Mark" ToRole="Model" />
         </EntityType>
-        <EntityType Name="Models">
+        <EntityType Name="Model">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MarkID" Type="Int32" Nullable="false" />
-          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK__Model" FromRole="Models" ToRole="Cars" />
-          <NavigationProperty Name="Marks" Relationship="Self.FK__Mark" FromRole="Models" ToRole="Marks" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Model" FromRole="Model" ToRole="Car" />
+          <NavigationProperty Name="Mark" Relationship="Self.FK__Mark" FromRole="Model" ToRole="Mark" />
         </EntityType>
-        <EntityType Name="Orders">
+        <EntityType Name="Order">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -541,8 +641,8 @@
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="Sale_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK__Order__Car" FromRole="Orders" ToRole="Cars" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__ID" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Car" Relationship="Self.FK__Order__Car" FromRole="Order" ToRole="Car" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__ID" FromRole="Order" ToRole="Customer" />
         </EntityType>
         <EntityType Name="ReceiptInvoice">
           <Key>
@@ -553,9 +653,9 @@
           <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Other_costs" Type="Decimal" Precision="14" Scale="2" />
           <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK__Car__ReceiptInvoice" FromRole="ReceiptInvoice" ToRole="Cars" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Car__ReceiptInvoice" FromRole="ReceiptInvoice" ToRole="Car" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -565,27 +665,13 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ArchiveOrders">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="CarID" />
-            <PropertyRef Name="CustomerID" />
-            <PropertyRef Name="Sale_date" />
-            <PropertyRef Name="Sale_price" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="CarID" Type="Int32" Nullable="false" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="Sale_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CarColors">
+        <EntityType Name="CarColor">
           <Key>
             <PropertyRef Name="Color" />
           </Key>
           <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="CarTrims">
+        <EntityType Name="CarTrim">
           <Key>
             <PropertyRef Name="TRIM" />
           </Key>
@@ -610,7 +696,7 @@
           <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-          <Property Name="Financial_result" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="FinancialResult" Type="Decimal" Precision="15" Scale="2" />
         </EntityType>
         <EntityType Name="MonthlyReport">
           <Key>
@@ -633,9 +719,9 @@
           <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
           <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-          <Property Name="Financial_result" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="FinancialResult" Type="Decimal" Precision="15" Scale="2" />
         </EntityType>
-        <EntityType Name="ViewCars">
+        <EntityType Name="ViewCar">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="ModelID" />
@@ -659,7 +745,31 @@
           <Property Name="Transmission" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FuelType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="ViewCustomers">
+        <EntityType Name="ViewCar1">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ModelID" />
+            <PropertyRef Name="ReceiptInvoiceID" />
+            <PropertyRef Name="VIN" />
+            <PropertyRef Name="TRIM" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Mileage" />
+            <PropertyRef Name="Transmission" />
+            <PropertyRef Name="FuelType" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelID" Type="Int32" Nullable="false" />
+          <Property Name="ReceiptInvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mileage" Type="Double" Nullable="false" />
+          <Property Name="Transmission" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FuelType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewCustomer">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Surname" />
@@ -673,7 +783,29 @@
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="ViewMarkS">
+        <EntityType Name="ViewCustomer1">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewMark">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewMark1">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Mark" />
@@ -681,7 +813,17 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Mark" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="ViewModelS">
+        <EntityType Name="ViewModel">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MarkID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewModel1">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="MarkID" />
@@ -691,7 +833,21 @@
           <Property Name="MarkID" Type="Int32" Nullable="false" />
           <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="ViewOrders">
+        <EntityType Name="ViewOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CarID" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="Sale_date" />
+            <PropertyRef Name="Sale_price" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Sale_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewOrder1">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="CarID" />
@@ -720,102 +876,106 @@
         </EntityType>
         <Association Name="FK__Car__ReceiptInvoice">
           <End Role="ReceiptInvoice" Type="Self.ReceiptInvoice" Multiplicity="1" />
-          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReceiptInvoice">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="ReceiptInvoiceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Model">
-          <End Role="Models" Type="Self.Models" Multiplicity="1" />
-          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Models">
+            <Principal Role="Model">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="ModelID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Order__Car">
-          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cars">
+            <Principal Role="Car">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="CarID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Customer__ID">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Customer">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Mark">
-          <End Role="Marks" Type="Self.Marks" Multiplicity="1" />
-          <End Role="Models" Type="Self.Models" Multiplicity="*" />
+          <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Marks">
+            <Principal Role="Mark">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Models">
+            <Dependent Role="Model">
               <PropertyRef Name="MarkID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CarResaleEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cars" EntityType="Self.Cars" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" />
-          <EntitySet Name="Marks" EntityType="Self.Marks" />
-          <EntitySet Name="Models" EntityType="Self.Models" />
-          <EntitySet Name="Orders" EntityType="Self.Orders" />
-          <EntitySet Name="ReceiptInvoice" EntityType="Self.ReceiptInvoice" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="ArchiveOrders" EntityType="Self.ArchiveOrders" />
-          <EntitySet Name="CarColors" EntityType="Self.CarColors" />
-          <EntitySet Name="CarTrims" EntityType="Self.CarTrims" />
-          <EntitySet Name="DailyReport" EntityType="Self.DailyReport" />
-          <EntitySet Name="MonthlyReport" EntityType="Self.MonthlyReport" />
-          <EntitySet Name="ViewCars" EntityType="Self.ViewCars" />
-          <EntitySet Name="ViewCustomers" EntityType="Self.ViewCustomers" />
-          <EntitySet Name="ViewMarkS" EntityType="Self.ViewMarkS" />
-          <EntitySet Name="ViewModelS" EntityType="Self.ViewModelS" />
-          <EntitySet Name="ViewOrders" EntityType="Self.ViewOrders" />
-          <EntitySet Name="ViewReceiptInvoice" EntityType="Self.ViewReceiptInvoice" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Marks" EntityType="Self.Mark" />
+          <EntitySet Name="Models" EntityType="Self.Model" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="ReceiptInvoices" EntityType="Self.ReceiptInvoice" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="CarColors" EntityType="Self.CarColor" />
+          <EntitySet Name="CarTrims" EntityType="Self.CarTrim" />
+          <EntitySet Name="DailyReports" EntityType="Self.DailyReport" />
+          <EntitySet Name="MonthlyReports" EntityType="Self.MonthlyReport" />
+          <EntitySet Name="ViewCars" EntityType="Self.ViewCar" />
+          <EntitySet Name="ViewCars1" EntityType="Self.ViewCar1" />
+          <EntitySet Name="ViewCustomers" EntityType="Self.ViewCustomer" />
+          <EntitySet Name="ViewCustomers1" EntityType="Self.ViewCustomer1" />
+          <EntitySet Name="ViewMarks" EntityType="Self.ViewMark" />
+          <EntitySet Name="ViewMarks1" EntityType="Self.ViewMark1" />
+          <EntitySet Name="ViewModels" EntityType="Self.ViewModel" />
+          <EntitySet Name="ViewModels1" EntityType="Self.ViewModel1" />
+          <EntitySet Name="ViewOrders" EntityType="Self.ViewOrder" />
+          <EntitySet Name="ViewOrders1" EntityType="Self.ViewOrder1" />
+          <EntitySet Name="ViewReceiptInvoices" EntityType="Self.ViewReceiptInvoice" />
           <AssociationSet Name="FK__Car__ReceiptInvoice" Association="Self.FK__Car__ReceiptInvoice">
-            <End Role="ReceiptInvoice" EntitySet="ReceiptInvoice" />
-            <End Role="Cars" EntitySet="Cars" />
+            <End Role="ReceiptInvoice" EntitySet="ReceiptInvoices" />
+            <End Role="Car" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK__Model" Association="Self.FK__Model">
-            <End Role="Models" EntitySet="Models" />
-            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Model" EntitySet="Models" />
+            <End Role="Car" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK__Order__Car" Association="Self.FK__Order__Car">
-            <End Role="Cars" EntitySet="Cars" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK__Customer__ID" Association="Self.FK__Customer__ID">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK__Mark" Association="Self.FK__Mark">
-            <End Role="Marks" EntitySet="Marks" />
-            <End Role="Models" EntitySet="Models" />
+            <End Role="Mark" EntitySet="Marks" />
+            <End Role="Model" EntitySet="Models" />
           </AssociationSet>
           <FunctionImport Name="GetModels" ReturnType="Collection(String)">
             <Parameter Name="MarkID" Mode="In" Type="Int32" />
@@ -878,7 +1038,7 @@
           <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-          <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
         </ComplexType>
         <ComplexType Name="SpecificPeriodReport_Result">
           <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
@@ -890,7 +1050,7 @@
           <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-          <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -899,8 +1059,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище CarResaleModelContainer" CdmEntityContainer="CarResaleEntities">
           <EntitySetMapping Name="Cars">
-            <EntityTypeMapping TypeName="CarResaleModel.Cars">
-              <MappingFragment StoreEntitySet="Cars">
+            <EntityTypeMapping TypeName="CarResaleModel.Car">
+              <MappingFragment StoreEntitySet="Car">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ModelID" ColumnName="ModelID" />
                 <ScalarProperty Name="ReceiptInvoiceID" ColumnName="ReceiptInvoiceID" />
@@ -915,8 +1075,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="CarResaleModel.Customers">
-              <MappingFragment StoreEntitySet="Customers">
+            <EntityTypeMapping TypeName="CarResaleModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -926,25 +1086,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Marks">
-            <EntityTypeMapping TypeName="CarResaleModel.Marks">
-              <MappingFragment StoreEntitySet="Marks">
+            <EntityTypeMapping TypeName="CarResaleModel.Mark">
+              <MappingFragment StoreEntitySet="Mark">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Models">
-            <EntityTypeMapping TypeName="CarResaleModel.Models">
-              <MappingFragment StoreEntitySet="Models">
+            <EntityTypeMapping TypeName="CarResaleModel.Model">
+              <MappingFragment StoreEntitySet="Model">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MarkID" ColumnName="MarkID" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="CarResaleModel.Orders">
-              <MappingFragment StoreEntitySet="Orders">
+            <EntityTypeMapping TypeName="CarResaleModel.Order">
+              <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CarID" ColumnName="CarID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -953,7 +1113,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ReceiptInvoice">
+          <EntitySetMapping Name="ReceiptInvoices">
             <EntityTypeMapping TypeName="CarResaleModel.ReceiptInvoice">
               <MappingFragment StoreEntitySet="ReceiptInvoice">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -965,7 +1125,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CarResaleModel.sysdiagrams">
+            <EntityTypeMapping TypeName="CarResaleModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -975,32 +1135,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ArchiveOrders">
-            <EntityTypeMapping TypeName="CarResaleModel.ArchiveOrders">
-              <MappingFragment StoreEntitySet="ArchiveOrders">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CarID" ColumnName="CarID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Sale_date" ColumnName="Sale date" />
-                <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CarColors">
-            <EntityTypeMapping TypeName="CarResaleModel.CarColors">
+            <EntityTypeMapping TypeName="CarResaleModel.CarColor">
               <MappingFragment StoreEntitySet="CarColors">
                 <ScalarProperty Name="Color" ColumnName="Color" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CarTrims">
-            <EntityTypeMapping TypeName="CarResaleModel.CarTrims">
+            <EntityTypeMapping TypeName="CarResaleModel.CarTrim">
               <MappingFragment StoreEntitySet="CarTrims">
                 <ScalarProperty Name="TRIM" ColumnName="TRIM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DailyReport">
+          <EntitySetMapping Name="DailyReports">
             <EntityTypeMapping TypeName="CarResaleModel.DailyReport">
               <MappingFragment StoreEntitySet="DailyReport">
                 <ScalarProperty Name="VIN" ColumnName="VIN" />
@@ -1011,11 +1160,11 @@
                 <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
                 <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
                 <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="Financial_result" ColumnName="Financial result" />
+                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MonthlyReport">
+          <EntitySetMapping Name="MonthlyReports">
             <EntityTypeMapping TypeName="CarResaleModel.MonthlyReport">
               <MappingFragment StoreEntitySet="MonthlyReport">
                 <ScalarProperty Name="VIN" ColumnName="VIN" />
@@ -1027,12 +1176,28 @@
                 <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
                 <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
                 <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="Financial_result" ColumnName="Financial result" />
+                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ViewCars">
-            <EntityTypeMapping TypeName="CarResaleModel.ViewCars">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewCar">
+              <MappingFragment StoreEntitySet="ViewCar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="ReceiptInvoiceID" ColumnName="ReceiptInvoiceID" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="TRIM" ColumnName="TRIM" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCars1">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewCar1">
               <MappingFragment StoreEntitySet="ViewCars">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ModelID" ColumnName="ModelID" />
@@ -1048,7 +1213,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ViewCustomers">
-            <EntityTypeMapping TypeName="CarResaleModel.ViewCustomers">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewCustomer">
+              <MappingFragment StoreEntitySet="ViewCustomer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCustomers1">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewCustomer1">
               <MappingFragment StoreEntitySet="ViewCustomers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -1058,17 +1234,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewMarkS">
-            <EntityTypeMapping TypeName="CarResaleModel.ViewMarkS">
-              <MappingFragment StoreEntitySet="ViewMarkS">
+          <EntitySetMapping Name="ViewMarks">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewMark">
+              <MappingFragment StoreEntitySet="ViewMark">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewMarks1">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewMark1">
+              <MappingFragment StoreEntitySet="ViewMarks">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Mark" ColumnName="Mark" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewModelS">
-            <EntityTypeMapping TypeName="CarResaleModel.ViewModelS">
-              <MappingFragment StoreEntitySet="ViewModelS">
+          <EntitySetMapping Name="ViewModels">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewModel">
+              <MappingFragment StoreEntitySet="ViewModel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MarkID" ColumnName="MarkID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewModels1">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewModel1">
+              <MappingFragment StoreEntitySet="ViewModels">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MarkID" ColumnName="MarkID" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -1076,7 +1269,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ViewOrders">
-            <EntityTypeMapping TypeName="CarResaleModel.ViewOrders">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewOrder">
+              <MappingFragment StoreEntitySet="ViewOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Sale_date" ColumnName="Sale date" />
+                <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewOrders1">
+            <EntityTypeMapping TypeName="CarResaleModel.ViewOrder1">
               <MappingFragment StoreEntitySet="ViewOrders">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CarID" ColumnName="CarID" />
@@ -1086,7 +1290,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewReceiptInvoice">
+          <EntitySetMapping Name="ViewReceiptInvoices">
             <EntityTypeMapping TypeName="CarResaleModel.ViewReceiptInvoice">
               <MappingFragment StoreEntitySet="ViewReceiptInvoice">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1133,7 +1337,7 @@
                 <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
                 <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
                 <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="Financial_result" ColumnName="Financial result" />
+                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1149,7 +1353,7 @@
                 <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
                 <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
                 <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="Financial_result" ColumnName="Financial result" />
+                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1167,7 +1371,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />

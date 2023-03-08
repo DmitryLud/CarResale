@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarResale.DBModel;
+using CarResale.Windows;
 
 namespace CarResale.Pages
 {
@@ -25,7 +26,7 @@ namespace CarResale.Pages
             SetDefaultItemSource();
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage()); };
-            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage(DG.SelectedItem as Marks)); };
+            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new MarkAddPage(DG.SelectedItem as Mark)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaultItemSource(); };
 
@@ -46,26 +47,25 @@ namespace CarResale.Pages
         private void SelectedSymbol()
         {
             char selectedItem = FirstSymbolCB.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()[0];
-            DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList().Where(x => x.Mark[0] == selectedItem);
+            DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList().Where(x => x.Name[0] == selectedItem);
         }
 
         private void Delete()
         {
-            if (MessageBox.Show("Вы точно хотите удалить выбранные элементы?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;
+            if (!(bool)new QuestionWindow("Внимание!", "Вы точно хотите удалить выбранные элементы?").ShowDialog()) return;
 
-            var selectedItems = DG.SelectedItems.Cast<Marks>().ToList();
+            var selectedItems = DG.SelectedItems.Cast<Mark>().ToList();
 
             try
             {
                 CarResaleEntities.GetContext().Marks.RemoveRange(selectedItems);
                 CarResaleEntities.GetContext().SaveChanges();
                 DG.ItemsSource = CarResaleEntities.GetContext().Marks.ToList();
-                MessageBox.Show("Данные успешно удалены!");
+                new InfoWindow("Уведомление", "Данные успешно удалены!").ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                throw;
+                new InfoWindow("Ошибка", ex.Message).ShowDialog();
             }
             
         }

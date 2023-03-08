@@ -1,0 +1,33 @@
+﻿<Window x:Class="CarResale.Windows.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarResale.Windows"
+        mc:Ignorable="d"
+        Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        Height="350" Width="400" ResizeMode="NoResize">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#1e2c3a" Grid.RowSpan="3"/>
+
+        <StackPanel MouseDown="Window_MouseDown"  Background="#303942" Grid.Row="0" Orientation="Horizontal">
+            <Label x:Name="Title" FontSize="15" Margin="12,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+
+            <TextBlock Name="TBError" Margin="30" TextWrapping="Wrap" MaxHeight="300"
+                       FontSize="22" Foreground="White" TextAlignment="Center"/>
+        </StackPanel>
+
+        <Button Grid.Row="2" Name="ButtonOK" Height="30" Width="120"
+                Content="Ok" Click="ButtonOK_Click"/>
+    </Grid>
+</Window>

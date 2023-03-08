@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarResale.DBModel;
+using CarResale.Windows;
 
 namespace CarResale.Pages
 {
@@ -22,8 +23,8 @@ namespace CarResale.Pages
     /// </summary>
     public partial class MarkAddPage : Page
     {
-        private Marks _current = new Marks();
-        public MarkAddPage(Marks selected = null)
+        private Mark _current = new Mark();
+        public MarkAddPage(Mark selected = null)
         {
             InitializeComponent();
 
@@ -42,12 +43,12 @@ namespace CarResale.Pages
         private void SaveData()
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_current.Mark))
+            if (string.IsNullOrWhiteSpace(_current.Name))
                 errors.AppendLine("Введите название марки автомобиля");
 
             if (errors.Length > 0)
             {
-                MessageBox.Show(errors.ToString());
+                new InfoWindow("Ошибка", errors.ToString()).ShowDialog();
                 return;
             }
 
@@ -57,12 +58,12 @@ namespace CarResale.Pages
             try
             {
                 CarResaleEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные успешно сохранены!");
+                new InfoWindow("Уведомление", "Данные успешно сохранены!").ShowDialog();
                 CancelBtn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                new InfoWindow("Ошибка", ex.Message).ShowDialog();
             }
         }
 

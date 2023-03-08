@@ -1,4 +1,5 @@
 ﻿using CarResale.DBModel;
+using CarResale.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,8 @@ namespace CarResale.Pages
     /// </summary>
     public partial class ModelAddPage : Page
     {
-        private Models _current = new Models();
-        public ModelAddPage(Models selected = null)
+        private Model _current = new Model();
+        public ModelAddPage(Model selected = null)
         {
             InitializeComponent();
 
@@ -42,13 +43,14 @@ namespace CarResale.Pages
         private void SaveData()
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_current.Model))
+            if (string.IsNullOrWhiteSpace(_current.Name))
                 errors.AppendLine("Введите название модели");
-            if(_current.Marks == null)
+            if(_current.Mark == null)
                 errors.AppendLine("Выберите марку автомобиля");
+
             if (errors.Length > 0)
             {
-                MessageBox.Show(errors.ToString());
+                new InfoWindow("Ошибка", errors.ToString()).ShowDialog();
                 return;
             }
 
@@ -58,12 +60,12 @@ namespace CarResale.Pages
             try
             {
                 CarResaleEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные успешно сохранены!");
+                new InfoWindow("Уведомление", "Данные успешно сохранены!").ShowDialog();
                 CancelBtn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                new InfoWindow("Ошибка", ex.Message).ShowDialog();
             }
         }
     }

@@ -35,24 +35,28 @@ namespace CarResale.DBModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cars> Cars { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Marks> Marks { get; set; }
-        public virtual DbSet<Models> Models { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<ReceiptInvoice> ReceiptInvoice { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<ArchiveOrders> ArchiveOrders { get; set; }
-        public virtual DbSet<CarColors> CarColors { get; set; }
-        public virtual DbSet<CarTrims> CarTrims { get; set; }
-        public virtual DbSet<DailyReport> DailyReport { get; set; }
-        public virtual DbSet<MonthlyReport> MonthlyReport { get; set; }
-        public virtual DbSet<ViewCars> ViewCars { get; set; }
-        public virtual DbSet<ViewCustomers> ViewCustomers { get; set; }
-        public virtual DbSet<ViewMarkS> ViewMarkS { get; set; }
-        public virtual DbSet<ViewModelS> ViewModelS { get; set; }
-        public virtual DbSet<ViewOrders> ViewOrders { get; set; }
-        public virtual DbSet<ViewReceiptInvoice> ViewReceiptInvoice { get; set; }
+        public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Mark> Marks { get; set; }
+        public virtual DbSet<Model> Models { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<ReceiptInvoice> ReceiptInvoices { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<CarColor> CarColors { get; set; }
+        public virtual DbSet<CarTrim> CarTrims { get; set; }
+        public virtual DbSet<DailyReport> DailyReports { get; set; }
+        public virtual DbSet<MonthlyReport> MonthlyReports { get; set; }
+        public virtual DbSet<ViewCar> ViewCars { get; set; }
+        public virtual DbSet<ViewCar1> ViewCars1 { get; set; }
+        public virtual DbSet<ViewCustomer> ViewCustomers { get; set; }
+        public virtual DbSet<ViewCustomer1> ViewCustomers1 { get; set; }
+        public virtual DbSet<ViewMark> ViewMarks { get; set; }
+        public virtual DbSet<ViewMark1> ViewMarks1 { get; set; }
+        public virtual DbSet<ViewModel> ViewModels { get; set; }
+        public virtual DbSet<ViewModel1> ViewModels1 { get; set; }
+        public virtual DbSet<ViewOrder> ViewOrders { get; set; }
+        public virtual DbSet<ViewOrder1> ViewOrders1 { get; set; }
+        public virtual DbSet<ViewReceiptInvoice> ViewReceiptInvoices { get; set; }
     
         public virtual ObjectResult<string> GetModels(Nullable<int> markID)
         {

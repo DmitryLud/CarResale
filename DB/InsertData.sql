@@ -1,7 +1,7 @@
 USE CarResale
 GO
 
-INSERT INTO Marks VALUES
+INSERT INTO Mark VALUES
 	('Abarth'),
 	('AC'),
 	('Acura'),
@@ -273,7 +273,7 @@ INSERT INTO Marks VALUES
 	('ZX')
 GO
 
-INSERT INTO Models VALUES
+INSERT INTO Model VALUES
 	(33,'1 Series (F40)'),
 	(33,'1 Series (f52)'),
 	(33,'2 Series Gran Coupe'),

@@ -1,29 +1,29 @@
 USE CarResale
 GO 
 
-CREATE OR ALTER VIEW ViewCars
+CREATE OR ALTER VIEW ViewCar
 AS
-	SELECT * FROM [Cars]
+	SELECT * FROM [Car]
 GO
 
-CREATE OR ALTER VIEW ViewCustomers
+CREATE OR ALTER VIEW ViewCustomer
 AS
-	SELECT * FROM [Customers]
+	SELECT * FROM [Customer]
 GO
 
-CREATE OR ALTER VIEW ViewMarks
+CREATE OR ALTER VIEW ViewMark
 AS
-	SELECT * FROM [Marks]
+	SELECT * FROM [Mark]
 GO
 
-CREATE OR ALTER VIEW ViewModels
+CREATE OR ALTER VIEW ViewModel
 AS
-	SELECT * FROM [Models]
+	SELECT * FROM [Model]
 GO
 
-CREATE OR ALTER VIEW ViewOrders 
+CREATE OR ALTER VIEW ViewOrder 
 AS
-	SELECT * FROM [Orders]
+	SELECT * FROM [Order]
 GO
 
 CREATE OR ALTER VIEW ViewReceiptInvoice
@@ -31,38 +31,28 @@ AS
 	SELECT * FROM [ReceiptInvoice]
 GO
 
-CREATE OR ALTER VIEW CarColors 
-AS
-	SELECT DISTINCT [Color] FROM [Cars]
-GO
-
-CREATE OR ALTER VIEW CarTrims 
-AS
-	SELECT DISTINCT [TRIM] FROM [Cars]
-GO
-
 CREATE OR ALTER VIEW MonthlyReport 
 AS
-	SELECT C.VIN, MA.Mark, M.Model, CUS.[Name], CUS.[Surname], RI.[Date of acquisition], RI.[Acquisistion price], RI.[Total acquisistion price],
-		O.[Sale price], (O.[Sale price] - RI.[Total acquisistion price]) AS 'Financial result'
-	FROM [Orders] O
-	JOIN [Cars] C ON O.CarID = C.ID
-	JOIN [Models] M ON M.ID = C.ModelID
-	JOIN [Marks] MA ON MA.ID = M.MarkID
+	SELECT C.VIN, MA.[Name] AS 'Mark', M.[Name] AS 'Model', CUS.[Name], CUS.[Surname], RI.[Date of acquisition], RI.[Acquisistion price], RI.[Total acquisistion price],
+		O.[Sale price], (O.[Sale price] - RI.[Total acquisistion price]) AS 'FinancialResult'
+	FROM [Order] O
+	JOIN [Car] C ON O.CarID = C.ID
+	JOIN [Model] M ON M.ID = C.ModelID
+	JOIN [Mark] MA ON MA.ID = M.MarkID
 	JOIN [ReceiptInvoice] RI ON RI.ID = C.[ReceiptInvoiceID]
-	JOIN [Customers] CUS ON O.CustomerID = CUS.ID
+	JOIN [Customer] CUS ON O.CustomerID = CUS.ID
 	WHERE O.[Sale date] BETWEEN CONVERT(DATE, GETDATE()) AND DATEADD(DAY, -30, CONVERT(DATE, GETDATE()))
 GO
 
 CREATE OR ALTER VIEW DailyReport 
 AS
-	SELECT C.VIN, MA.Mark, M.Model, CUS.[Name], CUS.[Surname], RI.[Acquisistion price], RI.[Total acquisistion price],
-		O.[Sale price], (O.[Sale price] - RI.[Total acquisistion price]) AS 'Financial result'
-	FROM [Orders] O
-	JOIN [Cars] C ON O.CarID = C.ID
-	JOIN [Models] M ON M.ID = C.ModelID
-	JOIN [Marks] MA ON MA.ID = M.MarkID
+	SELECT C.VIN, MA.[Name] AS 'Mark', M.[Name] AS 'Model', CUS.[Name], CUS.[Surname], RI.[Acquisistion price], RI.[Total acquisistion price],
+		O.[Sale price], (O.[Sale price] - RI.[Total acquisistion price]) AS 'FinancialResult'
+	FROM [Order] O
+	JOIN [Car] C ON O.CarID = C.ID
+	JOIN [Model] M ON M.ID = C.ModelID
+	JOIN [Mark] MA ON MA.ID = M.MarkID
 	JOIN [ReceiptInvoice] RI ON RI.ID = C.[ReceiptInvoiceID]
-	JOIN [Customers] CUS ON O.CustomerID = CUS.ID
+	JOIN [Customer] CUS ON O.CustomerID = CUS.ID
 	WHERE O.[Sale date] = CONVERT(DATE, GETDATE())
 GO

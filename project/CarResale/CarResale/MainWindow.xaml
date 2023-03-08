@@ -51,9 +51,6 @@
             <Button x:Name="OrdersBtn" Content="Orders"
                     Margin="0,20,0,0"/>
 
-            <Button x:Name="ReceiptInvoiceBtn" Content="Receipt Invoice"
-                    Margin="0,20,0,0"/>
-
             <Button x:Name="ReportsBtn" Content="Reports"
                     Margin="0,20,0,0"/>
 

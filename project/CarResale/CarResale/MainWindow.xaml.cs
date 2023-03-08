@@ -29,8 +29,7 @@ namespace CarResale
             ModelsBtn.Click += (s, e) => SetPage(new Pages.ModelPage(), "Models");
             ClientsBtn.Click += (s, e) => SetPage(new Pages.ClientPage(), "Clients");
             OrdersBtn.Click += (s, e) => SetPage(new Pages.OrderPage(), "Orders");
-            ReceiptInvoiceBtn.Click += (s, e) => SetPage(new Pages.ReceiptInvoicePage(), "Receipt Invoice");
-            //ReportsBtn.Click += (s, e) => SetPage(new Pages.(), "Reports");
+            ReportsBtn.Click += (s, e) => SetPage(new Pages.ReportPage(), "Reports");
 
             ThemeBtn.Click += (s, e) =>
             {

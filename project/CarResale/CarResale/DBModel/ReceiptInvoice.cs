@@ -17,7 +17,7 @@ namespace CarResale.DBModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ReceiptInvoice()
         {
-            this.Cars = new HashSet<Cars>();
+            this.Cars = new HashSet<Car>();
         }
     
         public int ID { get; set; }
@@ -27,6 +27,6 @@ namespace CarResale.DBModel
         public decimal Total_acquisistion_price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cars> Cars { get; set; }
+        public virtual ICollection<Car> Cars { get; set; }
     }
 }

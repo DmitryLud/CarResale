@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\
+D:\Car Resale\project\CarResale\CarResale\obj\Debug\
 CarResale
 none
 false
 DEBUG;TRACE
-D:\CarResale\CarResale\project\CarResale\CarResale\App.xaml
-15-113212993
-2-41519359
-441511670014
-18-2117700083
-MainWindow.xaml;Pages\CarAddPage.xaml;Pages\CarPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientPage.xaml;Pages\MarkAddPage.xaml;Pages\MarkPage.xaml;Pages\ModelAddPage.xaml;Pages\ModelPage.xaml;Pages\OrderAddPage.xaml;Pages\OrderPage.xaml;Pages\ReceiptInvoiceAddPage.xaml;Pages\ReceiptInvoicePage.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;
+D:\Car Resale\project\CarResale\CarResale\App.xaml
+16-1282106009
+7961763278
+50743010697
+27891983224
+MainWindow.xaml;Pages\CarAddPage.xaml;Pages\CarPage.xaml;Pages\ClientAddPage.xaml;Pages\ClientPage.xaml;Pages\MarkAddPage.xaml;Pages\MarkPage.xaml;Pages\ModelAddPage.xaml;Pages\ModelPage.xaml;Pages\OrderAddPage.xaml;Pages\OrderPage.xaml;Pages\ReportPage.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\InfoWindow.xaml;Windows\QuestionWindow.xaml;
 
 False
 

@@ -22,7 +22,7 @@
 
             <Label Content="Mark" Height="20" />
             <TextBox x:Name="MarkTB" Width="140" Height="20"
-                     Text="{Binding Mark}"/>
+                     Text="{Binding Name}"/>
 
         </StackPanel>
 

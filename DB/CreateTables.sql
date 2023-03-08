@@ -2,20 +2,20 @@
 
 USE CarResale
 
-DROP TABLE IF EXISTS [Orders], [Cars], [ReceiptInvoice], [Models], [Customers], [Marks]
+DROP TABLE IF EXISTS [Order], [Car], [ReceiptInvoice], [Model], [Customer], [Mark]
 
-CREATE TABLE [Marks](
+CREATE TABLE [Mark](
 	[ID] INT IDENTITY NOT NULL,
-	[Mark] VARCHAR(30) NOT NULL,
+	[Name] VARCHAR(30) NOT NULL,
 	CONSTRAINT [PK__Mark__ID] PRIMARY KEY ([ID])
 )
 
-CREATE TABLE [Models](
+CREATE TABLE [Model](
 	[ID] INT IDENTITY NOT NULL,
 	[MarkID] INT NOT NULL,
-	[Model] VARCHAR(30) NOT NULL,
+	[Name] VARCHAR(30) NOT NULL,
 	CONSTRAINT [PK__Model__ID] PRIMARY KEY ([ID]),
-	CONSTRAINT [FK__Mark] FOREIGN KEY ([MarkID]) REFERENCES [Marks]([ID])
+	CONSTRAINT [FK__Mark] FOREIGN KEY ([MarkID]) REFERENCES [Mark]([ID])
 )
 
 CREATE TABLE [ReceiptInvoice](
@@ -28,7 +28,7 @@ CREATE TABLE [ReceiptInvoice](
 	CONSTRAINT [CHECK_Date_of_acquisition] CHECK ([Date of acquisition] < GETDATE())
 )
 
-CREATE TABLE [Cars](
+CREATE TABLE [Car](
 	[ID] INT IDENTITY NOT NULL,
 	[ModelID] INT NOT NULL,
 	[ReceiptInvoiceID] INT NOT NULL,
@@ -40,13 +40,13 @@ CREATE TABLE [Cars](
 	[Transmission] VARCHAR(9) NOT NULL,
 	[FuelType] VARCHAR(8) NOT NULL,
 	CONSTRAINT [PK__Car__ID] PRIMARY KEY ([ID]),
-	CONSTRAINT [FK__Model] FOREIGN KEY ([ModelID]) REFERENCES [Models]([ID]),
+	CONSTRAINT [FK__Model] FOREIGN KEY ([ModelID]) REFERENCES [Model]([ID]),
 	CONSTRAINT [FK__Car__ReceiptInvoice] FOREIGN KEY ([ReceiptInvoiceID]) REFERENCES ReceiptInvoice([ID]),
 	CONSTRAINT [CHECK_Year] CHECK ([Year] < YEAR(GETDATE())),
 	CONSTRAINT [CHECK_VIN] CHECK (LEN([VIN]) = 17)
 )
 
-CREATE TABLE [Customers](
+CREATE TABLE [Customer](
 	[ID] INT IDENTITY NOT NULL,
 	[Surname] VARCHAR(30) NOT NULL,
 	[Name] VARCHAR(30) NOT NULL,
@@ -57,14 +57,14 @@ CREATE TABLE [Customers](
 	CONSTRAINT [CHECK_Email] CHECK ([Email] LIKE '%@gmail.com' OR [Email] LIKE '%@mail.ru'),
 )
 
-CREATE TABLE [Orders](
+CREATE TABLE [Order](
 	[ID] INT IDENTITY NOT NULL,
 	[CarID] INT NOT NULL,
 	[CustomerID] INT NOT NULL,
 	[Sale date] DATE NOT NULL,
 	[Sale price] DECIMAL(14,2) NOT NULL,
 	CONSTRAINT [PK__Order__ID] PRIMARY KEY ([ID]),
-	CONSTRAINT [FK__Customer__ID] FOREIGN KEY ([CustomerID]) REFERENCES Customers([ID]),
-	CONSTRAINT [FK__Order__Car] FOREIGN KEY ([CarID]) REFERENCES Cars([ID])
+	CONSTRAINT [FK__Customer__ID] FOREIGN KEY ([CustomerID]) REFERENCES Customer([ID]),
+	CONSTRAINT [FK__Order__Car] FOREIGN KEY ([CarID]) REFERENCES Car([ID])
 )
 GO

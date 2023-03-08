@@ -41,11 +41,31 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,12 +78,23 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\ReportPage.xaml.cs">
+      <DependentUpon>ReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Windows\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\QuestionWindow.xaml.cs">
+      <DependentUpon>QuestionWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,10 +103,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBModel\ArchiveOrders.cs">
+    <Compile Include="DBModel\Car.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\CarColors.cs">
+    <Compile Include="DBModel\CarColor.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\CarResaleModel.Context.cs">
@@ -93,28 +124,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Cars.cs">
+    <Compile Include="DBModel\CarTrim.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\CarTrims.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Customers.cs">
+    <Compile Include="DBModel\Customer.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\DailyReport.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Marks.cs">
+    <Compile Include="DBModel\Mark.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Models.cs">
+    <Compile Include="DBModel\Model.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\MonthlyReport.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Orders.cs">
+    <Compile Include="DBModel\Order.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ReceiptInvoice.cs">
@@ -132,22 +160,37 @@
     <Compile Include="DBModel\sp_helpdiagrams_Result.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\sysdiagrams.cs">
+    <Compile Include="DBModel\sysdiagram.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewCars.cs">
+    <Compile Include="DBModel\ViewCar.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewCustomers.cs">
+    <Compile Include="DBModel\ViewCar1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewMarkS.cs">
+    <Compile Include="DBModel\ViewCustomer.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewModelS.cs">
+    <Compile Include="DBModel\ViewCustomer1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewOrders.cs">
+    <Compile Include="DBModel\ViewMark.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewMark1.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewModel.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewModel1.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewOrder.cs">
+      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ViewOrder1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ViewReceiptInvoice.cs">
@@ -197,11 +240,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ReceiptInvoiceAddPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ReceiptInvoicePage.xaml">
+    <Page Include="Pages\ReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +249,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\LightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\QuestionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,12 +293,6 @@
     <Compile Include="Pages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ReceiptInvoiceAddPage.xaml.cs">
-      <DependentUpon>ReceiptInvoiceAddPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ReceiptInvoicePage.xaml.cs">
-      <DependentUpon>ReceiptInvoicePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -269,6 +310,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DailyReport.rdlc" />
     <EntityDeploy Include="DBModel\CarResaleModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarResaleModel.Designer.cs</LastGenOutput>
@@ -277,6 +319,8 @@
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CarResale.DBModel.DailyReport.datasource" />
+    <None Include="Properties\DataSources\CarResale.DBModel.MonthlyReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -287,7 +331,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -302,6 +345,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
       <LastGenOutput>CarResaleModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

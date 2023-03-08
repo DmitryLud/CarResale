@@ -23,6 +23,6 @@ namespace CarResale.DBModel
         public decimal Acquisistion_price { get; set; }
         public decimal Total_acquisistion_price { get; set; }
         public decimal Sale_price { get; set; }
-        public Nullable<decimal> Financial_result { get; set; }
+        public Nullable<decimal> FinancialResult { get; set; }
     }
 }
