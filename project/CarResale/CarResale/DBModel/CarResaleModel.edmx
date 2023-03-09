@@ -1035,10 +1035,15 @@
           <Property Type="String" Name="Model" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="13" />
+          <Property Type="DateTime" Name="Date_of_acquisition" Nullable="false" />
           <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+          <Property Type="Decimal" Name="Other_costs" Nullable="true" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+          <Property Type="DateTime" Name="Sale_date" Nullable="false" />
           <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-          <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
         </ComplexType>
         <ComplexType Name="SpecificPeriodReport_Result">
           <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
@@ -1048,9 +1053,11 @@
           <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
           <Property Type="DateTime" Name="Date_of_acquisition" Nullable="false" />
           <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+          <Property Type="Decimal" Name="Other_costs" Nullable="true" Precision="14" Scale="2" />
           <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+          <Property Type="DateTime" Name="Sale_date" Nullable="false" />
           <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-          <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1334,10 +1341,15 @@
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-                <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-                <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Date_of_acquisition" ColumnName="Date_of_acquisition" />
+                <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion_price" />
+                <ScalarProperty Name="Other_costs" ColumnName="Other_costs" />
+                <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total_acquisistion_price" />
+                <ScalarProperty Name="Sale_date" ColumnName="Sale_date" />
+                <ScalarProperty Name="Sale_price" ColumnName="Sale_price" />
+                <ScalarProperty Name="Financial_result" ColumnName="Financial_result" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1349,11 +1361,13 @@
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Date_of_acquisition" ColumnName="Date of acquisition" />
-                <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-                <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-                <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-                <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
+                <ScalarProperty Name="Date_of_acquisition" ColumnName="Date_of_acquisition" />
+                <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion_price" />
+                <ScalarProperty Name="Other_costs" ColumnName="Other_costs" />
+                <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total_acquisistion_price" />
+                <ScalarProperty Name="Sale_date" ColumnName="Sale_date" />
+                <ScalarProperty Name="Sale_price" ColumnName="Sale_price" />
+                <ScalarProperty Name="Financial_result" ColumnName="Financial_result" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

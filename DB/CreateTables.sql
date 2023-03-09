@@ -53,7 +53,7 @@ CREATE TABLE [Customer](
 	[Phone] VARCHAR(13) NOT NULL,
 	[Email] VARCHAR(50) NOT NULL,
 	CONSTRAINT [PK__Customer__ID] PRIMARY KEY ([ID]),
-	CONSTRAINT [CHECK_Phone] CHECK ([Phone] LIKE(+'375[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
+	CONSTRAINT [CHECK_Phone] CHECK ([Phone] LIKE('375[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')),
 	CONSTRAINT [CHECK_Email] CHECK ([Email] LIKE '%@gmail.com' OR [Email] LIKE '%@mail.ru'),
 )
 

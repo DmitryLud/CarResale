@@ -450,10 +450,15 @@
     <Property Type="String" Name="Model" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="13" />
+    <Property Type="DateTime" Name="Date_of_acquisition" Nullable="false" />
     <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="Decimal" Name="Other_costs" Nullable="true" Precision="14" Scale="2" />
     <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="DateTime" Name="Sale_date" Nullable="false" />
     <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-    <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
+    <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
   </ComplexType>
   <ComplexType Name="SpecificPeriodReport_Result">
     <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
@@ -463,8 +468,10 @@
     <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
     <Property Type="DateTime" Name="Date_of_acquisition" Nullable="false" />
     <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="Decimal" Name="Other_costs" Nullable="true" Precision="14" Scale="2" />
     <Property Type="Decimal" Name="Total_acquisistion_price" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="DateTime" Name="Sale_date" Nullable="false" />
     <Property Type="Decimal" Name="Sale_price" Nullable="false" Precision="14" Scale="2" />
-    <Property Type="Decimal" Name="FinancialResult" Nullable="true" Precision="15" Scale="2" />
+    <Property Type="Decimal" Name="Financial_result" Nullable="true" Precision="15" Scale="2" />
   </ComplexType>
 </Schema>

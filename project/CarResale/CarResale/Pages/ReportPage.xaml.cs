@@ -23,11 +23,41 @@ namespace CarResale.Pages
     /// </summary>
     public partial class ReportPage : Page
     {
+        private bool _isReportViewerLoaded;
+
         public ReportPage()
         {
             InitializeComponent();
-            ReportView.LocalReport.ReportEmbeddedResource = "DailyReport.rdlc";
-            ReportView.LocalReport.DataSources.Add(new ReportDataSource("DailyReport"));
+
+            ReportView.Load += (s, e) => ReportViewer_Load();
+
+        }
+
+        private void ReportViewer_Load()
+        {
+            if (!_isReportViewerLoaded)
+            {
+                ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+                CarResaleDataSet carResaleDataSet = new CarResaleDataSet();
+
+                carResaleDataSet.BeginInit();
+
+                reportDataSource1.Name = "DataSet"; //Name of the report dataset in our .RDLC file
+                reportDataSource1.Value = carResaleDataSet.SpecificDayReport;
+                ReportView.LocalReport.DataSources.Add(reportDataSource1);
+                ReportView.LocalReport.ReportEmbeddedResource = "CarResale.Reports.DailyReport.rdlc";
+
+                carResaleDataSet.EndInit();
+
+                //fill data into adventureWorksDataSet
+                CarResaleDataSetTableAdapters.SpecificDayReportTableAdapter specificDayReportTableAdapter = new CarResaleDataSetTableAdapters.SpecificDayReportTableAdapter();
+                specificDayReportTableAdapter.ClearBeforeFill = true;
+                specificDayReportTableAdapter.Fill(carResaleDataSet.SpecificDayReport, DateTime.Now);
+
+                ReportView.RefreshReport();
+
+                _isReportViewerLoaded = true;
+            }
         }
     }
 }

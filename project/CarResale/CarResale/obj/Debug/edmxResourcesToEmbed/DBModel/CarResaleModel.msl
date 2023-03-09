@@ -277,10 +277,15 @@
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-          <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Date_of_acquisition" ColumnName="Date_of_acquisition" />
+          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion_price" />
+          <ScalarProperty Name="Other_costs" ColumnName="Other_costs" />
+          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total_acquisistion_price" />
+          <ScalarProperty Name="Sale_date" ColumnName="Sale_date" />
+          <ScalarProperty Name="Sale_price" ColumnName="Sale_price" />
+          <ScalarProperty Name="Financial_result" ColumnName="Financial_result" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -292,11 +297,13 @@
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Date_of_acquisition" ColumnName="Date of acquisition" />
-          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-          <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
+          <ScalarProperty Name="Date_of_acquisition" ColumnName="Date_of_acquisition" />
+          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion_price" />
+          <ScalarProperty Name="Other_costs" ColumnName="Other_costs" />
+          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total_acquisistion_price" />
+          <ScalarProperty Name="Sale_date" ColumnName="Sale_date" />
+          <ScalarProperty Name="Sale_price" ColumnName="Sale_price" />
+          <ScalarProperty Name="Financial_result" ColumnName="Financial_result" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

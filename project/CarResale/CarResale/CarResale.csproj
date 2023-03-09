@@ -85,23 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\ReportPage.xaml.cs">
-      <DependentUpon>ReportPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Windows\InfoWindow.xaml.cs">
-      <DependentUpon>InfoWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\QuestionWindow.xaml.cs">
-      <DependentUpon>QuestionWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="CarResaleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBModel\Car.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
@@ -195,6 +182,24 @@
     </Compile>
     <Compile Include="DBModel\ViewReceiptInvoice.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportPage.xaml.cs">
+      <DependentUpon>ReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Windows\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\QuestionWindow.xaml.cs">
+      <DependentUpon>QuestionWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -315,6 +320,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarResaleModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="CarResaleDataSet.xsc">
+      <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CarResaleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarResaleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarResaleDataSet.xss">
+      <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DBModel\CarResaleModel.edmx.diagram">
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
     </None>
