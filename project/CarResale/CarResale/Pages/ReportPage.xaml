@@ -16,7 +16,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <WindowsFormsHost Grid.Row="1" x:Name="WFHost">
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <Label Content="Дата: "/>
+            <TextBox x:Name="DateTB" Height="30" Width="120"/>
+            <Button x:Name="ReportBtn" Height="30" Width="130"
+                    Content="Сформировать"/>
+        </StackPanel>
+        
+        <WindowsFormsHost Grid.Row="1" x:Name="WFHost"
+                          Margin="10">
             <wf1:ReportViewer x:Name="ReportView"/>
         </WindowsFormsHost>
 

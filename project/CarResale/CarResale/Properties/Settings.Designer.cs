@@ -26,7 +26,7 @@ namespace CarResale.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=desktop-cn60a6h\\sqlexpress;Initial Catalog=CarResale;Integrated Secur" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\sqlexpress;Initial Catalog=CarResale;Integrated Secur" +
             "ity=True")]
         public string CarResaleConnectionString {
             get {

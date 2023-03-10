@@ -49,6 +49,7 @@ namespace CarResale.Pages
             DG.ItemsSource = CarResaleEntities.GetContext().Cars.ToList();
 
             SearchTB.Text = null;
+            FuelTypeCB.Text = null;
             MarkCB.Text = null;
             ModelCB.Text = null;
             TransmissionCB.Text = null;
