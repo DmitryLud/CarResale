@@ -215,3 +215,9 @@ D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\Windows\InfoWindow.
 D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\Windows\QuestionWindow.baml
 D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\RdlCompile.cache
 D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\RdlCompile.compiled
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.MSXML.dll

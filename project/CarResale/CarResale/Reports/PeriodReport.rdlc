@@ -2,25 +2,18 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="CarResaleDBModel">
+    <DataSource Name="CarResaleDataSet1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d6c816e4-2203-421d-80cd-b065f03c798e</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="CarResaleDataSet">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>3f77cbcd-7dbd-4d0f-8e99-30116595ea14</rd:DataSourceID>
+      <rd:DataSourceID>4ccd306b-7a84-4a03-bf01-a4a440e17e85</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet">
       <Query>
-        <DataSourceName>CarResaleDataSet</DataSourceName>
+        <DataSourceName>CarResaleDataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -84,10 +77,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>CarResaleDataSet1</rd:DataSetName>
         <rd:SchemaPath>D:\Car Resale\project\CarResale\CarResale\CarResaleDataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>SpecificDayReport</rd:TableName>
+        <rd:TableName>SpecificPeriodReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>SpecificDayReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>SpecificPeriodReportTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -102,7 +95,7 @@
                   <Width>1.29167in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.85417in</Width>
+                  <Width>1.85416in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.88542in</Width>
@@ -637,8 +630,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet</DataSetName>
-            <Top>0.19667in</Top>
-            <Left>0.13417in</Left>
+            <Top>0.11458in</Top>
+            <Left>0.14583in</Left>
             <Height>0.80208in</Height>
             <Width>9.53125in</Width>
             <Style>
@@ -651,24 +644,24 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label />
+                  <Group Name="Chart7_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Sale_date.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Sale_date.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!Sale_date.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart7_SeriesGroup">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!VIN.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!VIN.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <Label>=Fields!VIN.Value</Label>
+                  <Label>Financial result</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -719,6 +712,7 @@
                         <Style>None</Style>
                       </Border>
                       <FontSize>8pt</FontSize>
+                      <Format>d</Format>
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
@@ -994,8 +988,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet</DataSetName>
-            <Top>1.17583in</Top>
-            <Left>0.13417in</Left>
+            <Top>1.09374in</Top>
+            <Left>0.14583in</Left>
             <Height>2.625in</Height>
             <Width>9.53125in</Width>
             <ZIndex>1</ZIndex>
@@ -1015,7 +1009,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Итог продаж за день: </Value>
+                    <Value>Итог продаж за период: </Value>
                     <Style />
                   </TextRun>
                   <TextRun>
@@ -1030,8 +1024,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox35</rd:DefaultName>
-            <Top>3.95361in</Top>
-            <Left>0.13417in</Left>
+            <Top>3.87152in</Top>
+            <Left>0.14583in</Left>
             <Height>0.23958in</Height>
             <Width>3in</Width>
             <ZIndex>2</ZIndex>
@@ -1046,10 +1040,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.35292in</Height>
+        <Height>4.30902in</Height>
         <Style />
       </Body>
-      <Width>9.86334in</Width>
+      <Width>9.84376in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1066,5 +1060,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>c6445f1f-26da-4949-be3e-f9920c63399a</rd:ReportID>
+  <rd:ReportID>0ecae0e7-3b65-4b9d-8d8c-8465611aa3d2</rd:ReportID>
 </Report>

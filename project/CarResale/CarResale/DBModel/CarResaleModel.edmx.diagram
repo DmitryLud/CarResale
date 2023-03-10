@@ -4,29 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6887ca2a48034ee68c6c963ade7f754d" Name="Diagram1">
+      <Diagram DiagramId="1538a0da52b34b3fbd7b92b334b01685" Name="Diagram1">
         <EntityTypeShape EntityType="CarResaleModel.Car" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="CarResaleModel.Customer" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CarResaleModel.Mark" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="CarResaleModel.Model" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarResaleModel.Order" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CarResaleModel.ReceiptInvoice" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.CarColor" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.CarTrim" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.DailyReport" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.MonthlyReport" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewCar" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewCar1" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewCustomer" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewCustomer1" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewMark" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewMark1" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewModel" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewModel1" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewOrder" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewOrder1" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarResaleModel.ViewReceiptInvoice" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewCar" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewCustomer" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewMark" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewModel" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewOrder" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarResaleModel.ViewReceiptInvoice" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="CarResaleModel.FK__Car__ReceiptInvoice" ManuallyRouted="false" />
         <AssociationConnector Association="CarResaleModel.FK__Model" ManuallyRouted="false" />
         <AssociationConnector Association="CarResaleModel.FK__Order__Car" ManuallyRouted="false" />

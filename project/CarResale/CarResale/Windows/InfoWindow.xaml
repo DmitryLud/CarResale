@@ -10,14 +10,21 @@
         Height="350" Width="400" ResizeMode="NoResize">
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Border Background="#1e2c3a" Grid.RowSpan="3"/>
+        <Border Background="#FF263748" Grid.RowSpan="3"/>
 
-        <StackPanel MouseDown="Window_MouseDown"  Background="#303942" Grid.Row="0" Orientation="Horizontal">
+        <StackPanel MouseDown="Window_MouseDown"  Background="#FF2A323A" Grid.Row="0" Orientation="Horizontal">
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="8"
+                                  Direction="270"
+                                  ShadowDepth="5"
+                                  Opacity="0.1"
+                                  Color="Black"/>
+            </StackPanel.Effect>
             <Label x:Name="Title" FontSize="15" Margin="12,0,0,0"/>
         </StackPanel>
 

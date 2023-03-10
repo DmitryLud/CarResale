@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using System.Text.RegularExpressions;
 using Microsoft.Reporting.WinForms;
 using CarResale.Windows;
 
@@ -28,6 +29,7 @@ namespace CarResale.Pages
         private ReportDataSource _reportDataSource1;
         private CarResaleDataSet _carResaleDataSet;
         CarResaleDataSetTableAdapters.SpecificDayReportTableAdapter _specificDayReportTableAdapter;
+        CarResaleDataSetTableAdapters.SpecificPeriodReportTableAdapter _specificPeriodReportTableAdapter;
 
         public ReportPage()
         {
@@ -36,12 +38,15 @@ namespace CarResale.Pages
             _reportDataSource1 = new ReportDataSource();
             _carResaleDataSet = new CarResaleDataSet();
             _specificDayReportTableAdapter = new CarResaleDataSetTableAdapters.SpecificDayReportTableAdapter();
+            _specificPeriodReportTableAdapter = new CarResaleDataSetTableAdapters.SpecificPeriodReportTableAdapter();
+
 
             ReportView.Load += (s, e) => ReportViewer_Load();
             ReportBtn.Click += (s, e) => {
                 try
                 {
-                    CreateReport(DateTime.Parse(DateTB.Text));
+                    if (!IsValidDate(DateTB.Text)) throw new Exception();
+                    CreateReport(DateTB.Text);
                 }
                 catch(Exception) 
                 {
@@ -50,10 +55,42 @@ namespace CarResale.Pages
 
         }
 
-        private void CreateReport(DateTime date)
+        private bool IsValidDate(string date)
         {
-            _specificDayReportTableAdapter.ClearBeforeFill = true;
-            _specificDayReportTableAdapter.Fill(_carResaleDataSet.SpecificDayReport, date);
+            return Regex.IsMatch(date, @"[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}|[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}-[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}");
+        }
+
+        private void CreateReport(string date)
+        {
+            string[] dates = date.Split('-');
+
+            if (dates.Count() == 2)
+            {
+                _carResaleDataSet.BeginInit();
+
+                _reportDataSource1.Value = _carResaleDataSet.SpecificPeriodReport;
+                ReportView.LocalReport.DataSources.Add(_reportDataSource1);
+                ReportView.LocalReport.ReportEmbeddedResource = "CarResale.Reports.PeriodReport.rdlc";
+
+                _carResaleDataSet.EndInit();
+
+                _specificPeriodReportTableAdapter.ClearBeforeFill = true;
+                _specificPeriodReportTableAdapter.Fill(_carResaleDataSet.SpecificPeriodReport, DateTime.Parse(dates[0]), DateTime.Parse(dates[1]));
+            }
+            else
+            {
+                _carResaleDataSet.BeginInit();
+
+                _reportDataSource1.Value = _carResaleDataSet.SpecificDayReport;
+                ReportView.LocalReport.DataSources.Add(_reportDataSource1);
+                ReportView.LocalReport.ReportEmbeddedResource = "CarResale.Reports.DailyReport.rdlc";
+
+                _carResaleDataSet.EndInit();
+
+
+                _specificDayReportTableAdapter.ClearBeforeFill = true;
+                _specificDayReportTableAdapter.Fill(_carResaleDataSet.SpecificDayReport, DateTime.Parse(date));
+            }
 
             ReportView.RefreshReport();
         }
@@ -73,7 +110,7 @@ namespace CarResale.Pages
 
 
                 _specificDayReportTableAdapter.ClearBeforeFill = true;
-                _specificDayReportTableAdapter.Fill(_carResaleDataSet.SpecificDayReport, DateTime.Parse("03.03.2022"));
+                _specificDayReportTableAdapter.Fill(_carResaleDataSet.SpecificDayReport, DateTime.Now);
 
                 ReportView.RefreshReport();
 

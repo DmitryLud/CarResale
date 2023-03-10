@@ -67,81 +67,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="CarResaleModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CarColors">
-      <EntityTypeMapping TypeName="CarResaleModel.CarColor">
-        <MappingFragment StoreEntitySet="CarColors">
-          <ScalarProperty Name="Color" ColumnName="Color" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CarTrims">
-      <EntityTypeMapping TypeName="CarResaleModel.CarTrim">
-        <MappingFragment StoreEntitySet="CarTrims">
-          <ScalarProperty Name="TRIM" ColumnName="TRIM" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DailyReports">
-      <EntityTypeMapping TypeName="CarResaleModel.DailyReport">
-        <MappingFragment StoreEntitySet="DailyReport">
-          <ScalarProperty Name="VIN" ColumnName="VIN" />
-          <ScalarProperty Name="Mark" ColumnName="Mark" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-          <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MonthlyReports">
-      <EntityTypeMapping TypeName="CarResaleModel.MonthlyReport">
-        <MappingFragment StoreEntitySet="MonthlyReport">
-          <ScalarProperty Name="VIN" ColumnName="VIN" />
-          <ScalarProperty Name="Mark" ColumnName="Mark" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Date_of_acquisition" ColumnName="Date of acquisition" />
-          <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion price" />
-          <ScalarProperty Name="Total_acquisistion_price" ColumnName="Total acquisistion price" />
-          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-          <ScalarProperty Name="FinancialResult" ColumnName="FinancialResult" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ViewCars">
       <EntityTypeMapping TypeName="CarResaleModel.ViewCar">
         <MappingFragment StoreEntitySet="ViewCar">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
-          <ScalarProperty Name="ReceiptInvoiceID" ColumnName="ReceiptInvoiceID" />
-          <ScalarProperty Name="VIN" ColumnName="VIN" />
-          <ScalarProperty Name="TRIM" ColumnName="TRIM" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
-          <ScalarProperty Name="Transmission" ColumnName="Transmission" />
-          <ScalarProperty Name="FuelType" ColumnName="FuelType" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ViewCars1">
-      <EntityTypeMapping TypeName="CarResaleModel.ViewCar1">
-        <MappingFragment StoreEntitySet="ViewCars">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ModelID" ColumnName="ModelID" />
           <ScalarProperty Name="ReceiptInvoiceID" ColumnName="ReceiptInvoiceID" />
@@ -166,30 +94,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ViewCustomers1">
-      <EntityTypeMapping TypeName="CarResaleModel.ViewCustomer1">
-        <MappingFragment StoreEntitySet="ViewCustomers">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ViewMarks">
       <EntityTypeMapping TypeName="CarResaleModel.ViewMark">
         <MappingFragment StoreEntitySet="ViewMark">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ViewMarks1">
-      <EntityTypeMapping TypeName="CarResaleModel.ViewMark1">
-        <MappingFragment StoreEntitySet="ViewMarks">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Mark" ColumnName="Mark" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -202,29 +111,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ViewModels1">
-      <EntityTypeMapping TypeName="CarResaleModel.ViewModel1">
-        <MappingFragment StoreEntitySet="ViewModels">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="MarkID" ColumnName="MarkID" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ViewOrders">
       <EntityTypeMapping TypeName="CarResaleModel.ViewOrder">
         <MappingFragment StoreEntitySet="ViewOrder">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CarID" ColumnName="CarID" />
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-          <ScalarProperty Name="Sale_date" ColumnName="Sale date" />
-          <ScalarProperty Name="Sale_price" ColumnName="Sale price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ViewOrders1">
-      <EntityTypeMapping TypeName="CarResaleModel.ViewOrder1">
-        <MappingFragment StoreEntitySet="ViewOrders">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CarID" ColumnName="CarID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -245,30 +134,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="GetModels" FunctionName="Хранилище CarResaleModel.GetModels" />
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище CarResaleModel.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище CarResaleModel.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище CarResaleModel.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище CarResaleModel.sp_helpdiagramdefinition">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="CarResaleModel.sp_helpdiagramdefinition_Result">
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище CarResaleModel.sp_helpdiagrams">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="CarResaleModel.sp_helpdiagrams_Result">
-          <ScalarProperty Name="Database" ColumnName="Database" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CarResaleModel.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CarResaleModel.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="SpecificDayReport" FunctionName="Хранилище CarResaleModel.SpecificDayReport">
       <ResultMapping>
         <ComplexTypeMapping TypeName="CarResaleModel.SpecificDayReport_Result">
@@ -297,6 +162,8 @@
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Date_of_acquisition" ColumnName="Date_of_acquisition" />
           <ScalarProperty Name="Acquisistion_price" ColumnName="Acquisistion_price" />
           <ScalarProperty Name="Other_costs" ColumnName="Other_costs" />

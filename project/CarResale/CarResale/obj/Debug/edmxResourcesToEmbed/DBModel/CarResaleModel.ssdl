@@ -60,109 +60,9 @@
     <Property Name="Other costs" Type="decimal" Precision="14" Scale="2" />
     <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.CarColors" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="CarColors">
-    <Key>
-      <PropertyRef Name="Color" />
-    </Key>
-    <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.CarTrims" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="CarTrims">
-    <Key>
-      <PropertyRef Name="TRIM" />
-    </Key>
-    <Property Name="TRIM" Type="varchar" MaxLength="30" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.DailyReport" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="DailyReport">
-    <Key>
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Model" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Acquisistion price" />
-      <PropertyRef Name="Total acquisistion price" />
-      <PropertyRef Name="Sale price" />
-    </Key>
-    <Property Name="VIN" Type="varchar" MaxLength="17" Nullable="false" />
-    <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="FinancialResult" Type="decimal" Precision="15" Scale="2" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.MonthlyReport" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="MonthlyReport">
-    <Key>
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Model" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Date of acquisition" />
-      <PropertyRef Name="Acquisistion price" />
-      <PropertyRef Name="Total acquisistion price" />
-      <PropertyRef Name="Sale price" />
-    </Key>
-    <Property Name="VIN" Type="varchar" MaxLength="17" Nullable="false" />
-    <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Date of acquisition" Type="date" Nullable="false" />
-    <Property Name="Acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Total acquisistion price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="FinancialResult" Type="decimal" Precision="15" Scale="2" />
-  </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCar" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ViewCar">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="ModelID" />
-      <PropertyRef Name="ReceiptInvoiceID" />
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="TRIM" />
-      <PropertyRef Name="Year" />
-      <PropertyRef Name="Color" />
-      <PropertyRef Name="Mileage" />
-      <PropertyRef Name="Transmission" />
-      <PropertyRef Name="FuelType" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ModelID" Type="int" Nullable="false" />
-    <Property Name="ReceiptInvoiceID" Type="int" Nullable="false" />
-    <Property Name="VIN" Type="varchar" MaxLength="17" Nullable="false" />
-    <Property Name="TRIM" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Year" Type="int" Nullable="false" />
-    <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Mileage" Type="float" Nullable="false" />
-    <Property Name="Transmission" Type="varchar" MaxLength="9" Nullable="false" />
-    <Property Name="FuelType" Type="varchar" MaxLength="8" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCars" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="ViewCars">
     <Key>
       <PropertyRef Name="ID" />
       <PropertyRef Name="ModelID" />
@@ -203,22 +103,6 @@
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewCustomers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="ViewCustomers">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Phone" />
-      <PropertyRef Name="Email" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewMark" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ViewMark">
     <Key>
@@ -227,16 +111,6 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewMarks" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="ViewMarks">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="Mark" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Mark" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewModel" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -251,36 +125,8 @@
     <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewModels" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="ViewModels">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="MarkID" />
-      <PropertyRef Name="Model" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MarkID" Type="int" Nullable="false" />
-    <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewOrder" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ViewOrder">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="CarID" />
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="Sale date" />
-      <PropertyRef Name="Sale price" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CarID" Type="int" Nullable="false" />
-    <Property Name="CustomerID" Type="int" Nullable="false" />
-    <Property Name="Sale date" Type="date" Nullable="false" />
-    <Property Name="Sale price" Type="decimal" Precision="14" Scale="2" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "CarResale.dbo.ViewOrders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="ViewOrders">
     <Key>
       <PropertyRef Name="ID" />
       <PropertyRef Name="CarID" />
@@ -369,40 +215,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="GetModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MarkID" Type="int" Mode="In" />
   </Function>
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SpecificDayReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Date" Type="date" Mode="In" />
   </Function>
@@ -417,44 +232,6 @@
     <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReceiptInvoice" EntityType="Self.ReceiptInvoice" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CarColors" EntityType="Self.CarColors" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [CarColors].[Color] AS [Color]
-    FROM [dbo].[CarColors] AS [CarColors]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="CarTrims" EntityType="Self.CarTrims" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [CarTrims].[TRIM] AS [TRIM]
-    FROM [dbo].[CarTrims] AS [CarTrims]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="DailyReport" EntityType="Self.DailyReport" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DailyReport].[VIN] AS [VIN], 
-    [DailyReport].[Mark] AS [Mark], 
-    [DailyReport].[Model] AS [Model], 
-    [DailyReport].[Name] AS [Name], 
-    [DailyReport].[Surname] AS [Surname], 
-    [DailyReport].[Acquisistion price] AS [Acquisistion price], 
-    [DailyReport].[Total acquisistion price] AS [Total acquisistion price], 
-    [DailyReport].[Sale price] AS [Sale price], 
-    [DailyReport].[FinancialResult] AS [FinancialResult]
-    FROM [dbo].[DailyReport] AS [DailyReport]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="MonthlyReport" EntityType="Self.MonthlyReport" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [MonthlyReport].[VIN] AS [VIN], 
-    [MonthlyReport].[Mark] AS [Mark], 
-    [MonthlyReport].[Model] AS [Model], 
-    [MonthlyReport].[Name] AS [Name], 
-    [MonthlyReport].[Surname] AS [Surname], 
-    [MonthlyReport].[Date of acquisition] AS [Date of acquisition], 
-    [MonthlyReport].[Acquisistion price] AS [Acquisistion price], 
-    [MonthlyReport].[Total acquisistion price] AS [Total acquisistion price], 
-    [MonthlyReport].[Sale price] AS [Sale price], 
-    [MonthlyReport].[FinancialResult] AS [FinancialResult]
-    FROM [dbo].[MonthlyReport] AS [MonthlyReport]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="ViewCar" EntityType="Self.ViewCar" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewCar].[ID] AS [ID], 
@@ -469,20 +246,6 @@
     [ViewCar].[FuelType] AS [FuelType]
     FROM [dbo].[ViewCar] AS [ViewCar]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="ViewCars" EntityType="Self.ViewCars" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ViewCars].[ID] AS [ID], 
-    [ViewCars].[ModelID] AS [ModelID], 
-    [ViewCars].[ReceiptInvoiceID] AS [ReceiptInvoiceID], 
-    [ViewCars].[VIN] AS [VIN], 
-    [ViewCars].[TRIM] AS [TRIM], 
-    [ViewCars].[Year] AS [Year], 
-    [ViewCars].[Color] AS [Color], 
-    [ViewCars].[Mileage] AS [Mileage], 
-    [ViewCars].[Transmission] AS [Transmission], 
-    [ViewCars].[FuelType] AS [FuelType]
-    FROM [dbo].[ViewCars] AS [ViewCars]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="ViewCustomer" EntityType="Self.ViewCustomer" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewCustomer].[ID] AS [ID], 
@@ -492,26 +255,11 @@
     [ViewCustomer].[Email] AS [Email]
     FROM [dbo].[ViewCustomer] AS [ViewCustomer]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="ViewCustomers" EntityType="Self.ViewCustomers" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ViewCustomers].[ID] AS [ID], 
-    [ViewCustomers].[Surname] AS [Surname], 
-    [ViewCustomers].[Name] AS [Name], 
-    [ViewCustomers].[Phone] AS [Phone], 
-    [ViewCustomers].[Email] AS [Email]
-    FROM [dbo].[ViewCustomers] AS [ViewCustomers]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="ViewMark" EntityType="Self.ViewMark" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewMark].[ID] AS [ID], 
     [ViewMark].[Name] AS [Name]
     FROM [dbo].[ViewMark] AS [ViewMark]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ViewMarks" EntityType="Self.ViewMarks" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ViewMarks].[ID] AS [ID], 
-    [ViewMarks].[Mark] AS [Mark]
-    FROM [dbo].[ViewMarks] AS [ViewMarks]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewModel" EntityType="Self.ViewModel" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -519,13 +267,6 @@
     [ViewModel].[MarkID] AS [MarkID], 
     [ViewModel].[Name] AS [Name]
     FROM [dbo].[ViewModel] AS [ViewModel]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ViewModels" EntityType="Self.ViewModels" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ViewModels].[ID] AS [ID], 
-    [ViewModels].[MarkID] AS [MarkID], 
-    [ViewModels].[Model] AS [Model]
-    FROM [dbo].[ViewModels] AS [ViewModels]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewOrder" EntityType="Self.ViewOrder" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -535,15 +276,6 @@
     [ViewOrder].[Sale date] AS [Sale date], 
     [ViewOrder].[Sale price] AS [Sale price]
     FROM [dbo].[ViewOrder] AS [ViewOrder]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ViewOrders" EntityType="Self.ViewOrders" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ViewOrders].[ID] AS [ID], 
-    [ViewOrders].[CarID] AS [CarID], 
-    [ViewOrders].[CustomerID] AS [CustomerID], 
-    [ViewOrders].[Sale date] AS [Sale date], 
-    [ViewOrders].[Sale price] AS [Sale price]
-    FROM [dbo].[ViewOrders] AS [ViewOrders]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewReceiptInvoice" EntityType="Self.ViewReceiptInvoice" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

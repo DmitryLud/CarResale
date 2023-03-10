@@ -70,97 +70,7 @@
     <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
     <NavigationProperty Name="Cars" Relationship="Self.FK__Car__ReceiptInvoice" FromRole="ReceiptInvoice" ToRole="Car" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="CarColor">
-    <Key>
-      <PropertyRef Name="Color" />
-    </Key>
-    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CarTrim">
-    <Key>
-      <PropertyRef Name="TRIM" />
-    </Key>
-    <Property Name="TRIM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DailyReport">
-    <Key>
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Model" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Acquisistion_price" />
-      <PropertyRef Name="Total_acquisistion_price" />
-      <PropertyRef Name="Sale_price" />
-    </Key>
-    <Property Name="VIN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Mark" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="FinancialResult" Type="Decimal" Precision="15" Scale="2" />
-  </EntityType>
-  <EntityType Name="MonthlyReport">
-    <Key>
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Model" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Date_of_acquisition" />
-      <PropertyRef Name="Acquisistion_price" />
-      <PropertyRef Name="Total_acquisistion_price" />
-      <PropertyRef Name="Sale_price" />
-    </Key>
-    <Property Name="VIN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Mark" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Date_of_acquisition" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Total_acquisistion_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-    <Property Name="FinancialResult" Type="Decimal" Precision="15" Scale="2" />
-  </EntityType>
   <EntityType Name="ViewCar">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="ModelID" />
-      <PropertyRef Name="ReceiptInvoiceID" />
-      <PropertyRef Name="VIN" />
-      <PropertyRef Name="TRIM" />
-      <PropertyRef Name="Year" />
-      <PropertyRef Name="Color" />
-      <PropertyRef Name="Mileage" />
-      <PropertyRef Name="Transmission" />
-      <PropertyRef Name="FuelType" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ModelID" Type="Int32" Nullable="false" />
-    <Property Name="ReceiptInvoiceID" Type="Int32" Nullable="false" />
-    <Property Name="VIN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TRIM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Year" Type="Int32" Nullable="false" />
-    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Mileage" Type="Double" Nullable="false" />
-    <Property Name="Transmission" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FuelType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ViewCar1">
     <Key>
       <PropertyRef Name="ID" />
       <PropertyRef Name="ModelID" />
@@ -198,20 +108,6 @@
     <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityType Name="ViewCustomer1">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="Surname" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Phone" />
-      <PropertyRef Name="Email" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
   <EntityType Name="ViewMark">
     <Key>
       <PropertyRef Name="ID" />
@@ -219,14 +115,6 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ViewMark1">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="Mark" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Mark" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="ViewModel">
     <Key>
@@ -238,31 +126,7 @@
     <Property Name="MarkID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityType Name="ViewModel1">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="MarkID" />
-      <PropertyRef Name="Model" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MarkID" Type="Int32" Nullable="false" />
-    <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
   <EntityType Name="ViewOrder">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="CarID" />
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="Sale_date" />
-      <PropertyRef Name="Sale_price" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CarID" Type="Int32" Nullable="false" />
-    <Property Name="CustomerID" Type="Int32" Nullable="false" />
-    <Property Name="Sale_date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Sale_price" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ViewOrder1">
     <Key>
       <PropertyRef Name="ID" />
       <PropertyRef Name="CarID" />
@@ -356,21 +220,11 @@
     <EntitySet Name="Models" EntityType="Self.Model" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="ReceiptInvoices" EntityType="Self.ReceiptInvoice" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="CarColors" EntityType="Self.CarColor" />
-    <EntitySet Name="CarTrims" EntityType="Self.CarTrim" />
-    <EntitySet Name="DailyReports" EntityType="Self.DailyReport" />
-    <EntitySet Name="MonthlyReports" EntityType="Self.MonthlyReport" />
     <EntitySet Name="ViewCars" EntityType="Self.ViewCar" />
-    <EntitySet Name="ViewCars1" EntityType="Self.ViewCar1" />
     <EntitySet Name="ViewCustomers" EntityType="Self.ViewCustomer" />
-    <EntitySet Name="ViewCustomers1" EntityType="Self.ViewCustomer1" />
     <EntitySet Name="ViewMarks" EntityType="Self.ViewMark" />
-    <EntitySet Name="ViewMarks1" EntityType="Self.ViewMark1" />
     <EntitySet Name="ViewModels" EntityType="Self.ViewModel" />
-    <EntitySet Name="ViewModels1" EntityType="Self.ViewModel1" />
     <EntitySet Name="ViewOrders" EntityType="Self.ViewOrder" />
-    <EntitySet Name="ViewOrders1" EntityType="Self.ViewOrder1" />
     <EntitySet Name="ViewReceiptInvoices" EntityType="Self.ViewReceiptInvoice" />
     <AssociationSet Name="FK__Car__ReceiptInvoice" Association="Self.FK__Car__ReceiptInvoice">
       <End Role="ReceiptInvoice" EntitySet="ReceiptInvoices" />
@@ -395,36 +249,6 @@
     <FunctionImport Name="GetModels" ReturnType="Collection(String)">
       <Parameter Name="MarkID" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CarResaleModel.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CarResaleModel.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
     <FunctionImport Name="SpecificDayReport" ReturnType="Collection(CarResaleModel.SpecificDayReport_Result)">
       <Parameter Name="Date" Mode="In" Type="DateTime" />
     </FunctionImport>
@@ -433,17 +257,6 @@
       <Parameter Name="DateEnd" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
-  </ComplexType>
   <ComplexType Name="SpecificDayReport_Result">
     <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
     <Property Type="String" Name="Mark" Nullable="false" MaxLength="30" />
@@ -466,6 +279,8 @@
     <Property Type="String" Name="Model" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="Surname" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="13" />
     <Property Type="DateTime" Name="Date_of_acquisition" Nullable="false" />
     <Property Type="Decimal" Name="Acquisistion_price" Nullable="false" Precision="14" Scale="2" />
     <Property Type="Decimal" Name="Other_costs" Nullable="true" Precision="14" Scale="2" />

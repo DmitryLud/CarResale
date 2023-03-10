@@ -18,6 +18,8 @@ namespace CarResale.DBModel
         public string Model { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public System.DateTime Date_of_acquisition { get; set; }
         public decimal Acquisistion_price { get; set; }
         public Nullable<decimal> Other_costs { get; set; }

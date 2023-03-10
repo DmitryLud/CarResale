@@ -90,10 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Car.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
+    <Compile Include="CarResaleDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarResaleDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\CarColor.cs">
+    <Compile Include="DBModel\Car.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\CarResaleModel.Context.cs">
@@ -111,22 +113,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\CarTrim.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DBModel\Customer.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\DailyReport.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\Mark.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\Model.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\MonthlyReport.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\Order.cs">
@@ -141,43 +134,19 @@
     <Compile Include="DBModel\SpecificPeriodReport_Result.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\sp_helpdiagrams_Result.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\sysdiagram.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DBModel\ViewCar.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\ViewCar1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ViewCustomer.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewCustomer1.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DBModel\ViewMark.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\ViewMark1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ViewModel.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\ViewModel1.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DBModel\ViewOrder.cs">
-      <DependentUpon>CarResaleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\ViewOrder1.cs">
       <DependentUpon>CarResaleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\ViewReceiptInvoice.cs">
@@ -316,10 +285,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\DailyReport.rdlc" />
-    <EntityDeploy Include="DBModel\CarResaleModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarResaleModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <EmbeddedResource Include="Reports\PeriodReport.rdlc" />
     <None Include="CarResaleDataSet.xsc">
       <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
     </None>
@@ -330,6 +296,21 @@
     </None>
     <None Include="CarResaleDataSet.xss">
       <DependentUpon>CarResaleDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="DBModel\CarResaleModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarResaleModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarResaleDataSet1.xsc">
+      <DependentUpon>CarResaleDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CarResaleDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarResaleDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CarResaleDataSet1.xss">
+      <DependentUpon>CarResaleDataSet1.xsd</DependentUpon>
     </None>
     <None Include="DBModel\CarResaleModel.edmx.diagram">
       <DependentUpon>CarResaleModel.edmx</DependentUpon>
