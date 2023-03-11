@@ -66,7 +66,8 @@ namespace CarResale.Pages
 
         private void Search()
         {
-            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x=>x.Name.Contains(SearchTB.Text)).ToList();
+            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x=>x.Name.Contains(SearchTB.Text) ||
+                x.Mark.Name.Contains(SearchTB.Text)).ToList();
         }
 
         private void Delete()

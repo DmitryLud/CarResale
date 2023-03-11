@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarResale.DBModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace CarResale.Pages
     /// </summary>
     public partial class ClientAddPage : Page
     {
-        public ClientAddPage()
+        public ClientAddPage(Customer selected = null)
         {
             InitializeComponent();
         }
