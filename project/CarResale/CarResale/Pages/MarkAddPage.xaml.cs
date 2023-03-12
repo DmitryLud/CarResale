@@ -18,9 +18,6 @@ using CarResale.Windows;
 
 namespace CarResale.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для MarkAddPage.xaml
-    /// </summary>
     public partial class MarkAddPage : Page
     {
         private Mark _current = new Mark();

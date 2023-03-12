@@ -5,10 +5,112 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CarResale.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="480" d:DesignWidth="800"
       Title="OrderPage">
 
     <Grid>
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid x:Name="DG" AutoGenerateColumns="False"
+                  Margin="20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="VIN" Binding="{Binding Car.VIN}"/>
+                <DataGridTextColumn Header="Марка" Binding="{Binding Car.Model.Mark.Name}"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Car.Model.Name}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Customer.Surname}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Customer.Name}"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding Customer.Phone}"/>
+                <DataGridTextColumn Header="Почта" Binding="{Binding Customer.Email}"/>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding Sale_date, StringFormat={}{0:M/d/yyyy}}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Sale_price}"
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button x:Name="AddBtn" Content="Add"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                <Button x:Name="ChangeBtn" Content="Change"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                <Button x:Name="DeleteBtn" Content="Delete"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+                <Button x:Name="ContractBtn" Content="Договор"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <TextBox x:Name="SearchTB" Margin="10,0,10,0"
+                         Height="30" Width="260"/>
+
+                <Button x:Name="SearchBtn" Content="Search"
+                        Height="30" Width="120" Margin="10,0,10,0"/>
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.RowSpan="2" Grid.Column="1">
+
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <Label Content="Марка"
+                       Width="120"/>
+                <ComboBox x:Name="MarkCB"
+                          Width="120" Height="20"
+                          DisplayMemberPath="Name"/>
+
+                <Label Content="Модель"
+                       Width="120"/>
+                <ComboBox x:Name="ModelCB"
+                          Width="120" Height="20"
+                          DisplayMemberPath="Name"/>
+
+                
+                <Label Content="Дата продажи"
+                       Width="120"/>
+                <TextBox x:Name="SaleDateTB"
+                          Width="120" Height="20"/>
+
+                <Label Content="Цена от"
+                       Width="120"/>
+                <TextBox x:Name="PriceFromTB"
+                          Width="120" Height="20"/>
+
+                <Label Content="до"
+                       Width="120"/>
+                <TextBox x:Name="PriceToTB"
+                          Width="120" Height="20"/>
+
+                <Button x:Name="ClearBtn" Content="Clear"
+                        Height="30" Width="120"
+                        Margin="0,20,0,0"/>
+
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Page>

@@ -86,7 +86,7 @@ namespace CarResale.Pages
         private void SelectedModel()
         {
             if (ModelCB.SelectedValue == null) return;
-            string selectedItem = ModelCB.SelectedValue.ToString();
+            string selectedItem = (ModelCB.SelectedValue as Model).Name;
             DG.ItemsSource = (DG.ItemsSource as List<Car>).Where(x => x.Model.Name == selectedItem).ToList();
         }
 

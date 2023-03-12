@@ -26,7 +26,6 @@ namespace CarResale.Pages
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ClientAddPage()); };
             ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ClientAddPage(DG.SelectedItem as Customer)); };
-            DeleteBtn.Click += (s, e) => { Delete(); };
             SearchBtn.Click += (s, e) => { Search(); };
 
 
@@ -43,26 +42,6 @@ namespace CarResale.Pages
                 x.Surname.Contains(SearchTB.Text) ||
                 x.Phone.Contains(SearchTB.Text) ||
                 x.Email.Contains(SearchTB.Text)).ToList();
-        }
-
-        private void Delete()
-        {
-            if (!(bool)new QuestionWindow("Внимание!", "Вы точно хотите удалить выбранные элементы?").ShowDialog()) return;
-
-            var selectedItems = DG.SelectedItems.Cast<Customer>().ToList();
-
-            try
-            {
-                CarResaleEntities.GetContext().Customers.RemoveRange(selectedItems);
-                CarResaleEntities.GetContext().SaveChanges();
-                DG.Items.Remove(selectedItems);
-                new InfoWindow("Уведомление", "Данные успешно удалены!").ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                new InfoWindow("Ошибка", ex.Message).ShowDialog();
-            }
-
         }
     }
 }

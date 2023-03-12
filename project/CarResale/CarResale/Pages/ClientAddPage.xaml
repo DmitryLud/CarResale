@@ -9,6 +9,47 @@
       Title="ClientAddPage">
 
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Label Content="Фамилия" Height="30" />
+            <TextBox x:Name="SurnameTB" Width="140" Height="20"
+                     Text="{Binding Surname}"/>
+
+            <Label Content="Имя" Height="30" />
+            <TextBox x:Name="NameTB" Width="140" Height="20"
+                     Text="{Binding Name}"/>
+
+            <Label Content="Номер телефона" Height="30" />
+            <TextBox x:Name="PhoneTB" Width="140" Height="20"
+                     Text="{Binding Phone}"/>
+
+            <Label Content="Почта" Height="30" />
+            <TextBox x:Name="EmailTB" Width="140" Height="20"
+                     Text="{Binding Email}"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Button x:Name="SaveBtn" Content="Save" 
+                    Height="30" Width="120"/>
+            <Button x:Name="CancelBtn" Content="Cancel" 
+                    Height="30" Width="120"
+                    Margin="10,0,0,0"/>
+
+        </StackPanel>
+
     </Grid>
 </Page>
