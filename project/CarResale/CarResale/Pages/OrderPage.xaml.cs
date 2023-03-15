@@ -27,8 +27,6 @@ namespace CarResale.Pages
             ModelCB.IsEnabled = false;
 
             DG.ItemsSource = CarResaleEntities.GetContext().Orders.ToList();
-            AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new OrderAddPage()); };
-            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new OrderAddPage(DG.SelectedItem as Order)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };

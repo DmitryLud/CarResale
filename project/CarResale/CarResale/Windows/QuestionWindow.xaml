@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CarResale.Windows"
         mc:Ignorable="d"
         Background="Transparent" WindowStyle="None"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         Height="350" Width="400" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>

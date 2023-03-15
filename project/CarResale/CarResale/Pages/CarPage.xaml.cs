@@ -17,14 +17,13 @@ namespace CarResale.Pages
 
             ModelCB.IsEnabled = false;
 
-            DG.ItemsSource = CarResaleEntities.GetContext().Cars.ToList();
-
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new CarAddPage()); };
             ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new CarAddPage(DG.SelectedItem as Car)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };
             ReceiptInvoiceBtn.Click += (s, e) => { new InfoWindow("Информация о приходной накладной", GetReceiptInvoice((DG.SelectedItem as Car).ReceiptInvoiceID)).ShowDialog(); };
+            CreateOrderBtn.Click += (s, e) => { (Application.Current.Windows[0] as MainWindow).SetPage(new OrderAddPage(DG.SelectedItem as Car), "Заказы"); };
             
             MarkCB.ItemsSource = CarResaleEntities.GetContext().Marks.ToList();
             FuelTypeCB.ItemsSource = CarResaleEntities.GetContext().Cars.Select(x=>x.FuelType).Distinct().ToList();
@@ -42,11 +41,12 @@ namespace CarResale.Pages
             YearTB.TextChanged += (s, e) => { SelectedYear(); };
             TransmissionCB.SelectionChanged += (s, e) => { SelectedTransmission(); };
 
+            DG.ItemsSource = CarResaleEntities.GetContext().Cars.Where(x=> x.Orders.Count() == 0).ToList();
 
         }
         private void SetDefaulFilter()
         {
-            DG.ItemsSource = CarResaleEntities.GetContext().Cars.ToList();
+            DG.ItemsSource = CarResaleEntities.GetContext().Cars.Where(x => x.Orders.Where(y => y.CarID == x.ID).Count() == 0).ToList();
 
             SearchTB.Text = null;
             FuelTypeCB.Text = null;

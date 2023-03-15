@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CarResale"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="960" Width="1280"
+        Title="MainWindow" Height="800" Width="1280"
         MinHeight="800" MinWidth="980">
     <Grid x:Name="MainGrid" Style="{StaticResource MainGridBackground}">
 
@@ -34,34 +34,31 @@
 
             <TextBlock Margin="0,20,0,0"
                 FontSize="30" FontWeight="DemiBold"
-                Text="Menu"/>
+                Text="Меню"/>
 
-            <Button x:Name="CarsBtn" Content="Cars"
+            <Button x:Name="CarsBtn" Content="Автомобили"
                     Margin="0,30,0,0"/>
 
-            <Button x:Name="ClientsBtn" Content="Clients"
+            <Button x:Name="ClientsBtn" Content="Клиенты"
                     Margin="0,20,0,0"/>
 
-            <Button x:Name="MarksBtn" Content="Marks"
+            <Button x:Name="OrdersBtn" Content="Заказы"
+                    Margin="0,20,0,0"/>
+            
+            <Button x:Name="MarksBtn" Content="Марки"
                     Margin="0,20,0,0"/>
 
-            <Button x:Name="ModelsBtn" Content="Models"
+            <Button x:Name="ModelsBtn" Content="Модели"
                     Margin="0,20,0,0"/>
 
-            <Button x:Name="OrdersBtn" Content="Orders"
-                    Margin="0,20,0,0"/>
-
-            <Button x:Name="ReportsBtn" Content="Reports"
-                    Margin="0,20,0,0"/>
-
-            <Button x:Name="ThemeBtn" Content="Theme"
+            <Button x:Name="ReportsBtn" Content="Отчеты"
                     Margin="0,20,0,0"/>
 
         </StackPanel>
 
         <TextBlock Grid.Row="0" Grid.Column="1"
                    FontSize="32" FontWeight="DemiBold"
-                   x:Name="CurrentPageName" Text="Orders"/>
+                   x:Name="CurrentPageName" Text="Заказы"/>
 
         <Frame Grid.Row="1" Grid.Column="1" x:Name="MainFrame"
                NavigationUIVisibility="Hidden"/>

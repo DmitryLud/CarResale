@@ -230,3 +230,12 @@ D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.dll
 D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Microsoft.mshtml.dll
 D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Doc.xml
 D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.xml
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Aspose.Words.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Aspose.Words.Pdf2Word.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Spire.Doc.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.mshtml.dll
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Aspose.Words.xml
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Spire.Doc.xml
+D:\Car Resale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.xml
+D:\Car Resale\project\CarResale\CarResale\obj\Debug\CarResale.csproj.ResolveComReference.cache

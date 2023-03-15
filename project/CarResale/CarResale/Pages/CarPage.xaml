@@ -47,25 +47,28 @@
                         HorizontalAlignment="Center">
 
                 <Button x:Name="AddBtn" Content="Добавить"
-                        Height="30" Width="120" Margin="10,0,10,0"/>
+                        Height="30" Width="120" Margin="0,0,10,0"/>
                 <Button x:Name="ChangeBtn" Content="Изменить"
-                        Height="30" Width="120" Margin="10,0,10,0"/>
+                        Height="30" Width="120" Margin="0,0,10,0"/>
                 <Button x:Name="DeleteBtn" Content="Удалить"
-                        Height="30" Width="120" Margin="10,0,10,0"/>
+                        Height="30" Width="120" Margin="0,0,10,0"/>
                 <Button x:Name="ReceiptInvoiceBtn" Content="Приходная накладная"
                         FontSize="14"
-                        Height="30" Width="140" Margin="10,0,10,0"/>
+                        Height="30" Width="170" Margin="0,0,0,0"/>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal"
                         HorizontalAlignment="Center">
 
-                <TextBox x:Name="SearchTB" Margin="10,0,10,0"
+                <Button x:Name="CreateOrderBtn" Content="Оформить заказ"
+                        Height="30" Width="150"/>
+
+                <TextBox x:Name="SearchTB" Margin="20,0,20,0"
                          Height="30" Width="260"/>
 
                 <Button x:Name="SearchBtn" Content="Поиск"
-                        Height="30" Width="120" Margin="10,0,10,0"/>
+                        Height="30" Width="110" />
 
             </StackPanel>
 

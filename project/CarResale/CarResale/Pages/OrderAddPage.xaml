@@ -19,9 +19,6 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
-            <Label Content="VIN автомобиля" Height="30" />
-            <TextBox x:Name="VINTB" Width="140" Height="20"/>
-
             <Label Content="Номер телефона клиента" Height="30" />
             <TextBox x:Name="PhoneTB" Width="140" Height="20"/>
 

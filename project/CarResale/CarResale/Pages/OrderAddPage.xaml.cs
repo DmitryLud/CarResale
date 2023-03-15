@@ -21,16 +21,12 @@ namespace CarResale.Pages
     public partial class OrderAddPage : Page
     {
         private Order _current = new Order();
-        public OrderAddPage(Order selected = null)
+        public OrderAddPage(Car selected)
         {
             InitializeComponent();
 
             _current.Sale_date = DateTime.Now;
-
-            if (selected != null)
-            {
-                _current = selected;
-            }
+            _current.Car = selected;
 
             DataContext = _current;
 
@@ -43,14 +39,15 @@ namespace CarResale.Pages
         {
             try
             {
-                _current.Car = CarResaleEntities.GetContext().Cars.First(x => x.VIN == VINTB.Text);
                 _current.Customer = CarResaleEntities.GetContext().Customers.First(x => x.Phone == PhoneTB.Text);
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                new InfoWindow("Ошибка", "Не удалось найти клиента!").ShowDialog();
+                return;
+            }
 
             StringBuilder errors = new StringBuilder();
-            if (_current.Car == null)
-                errors.AppendLine("Выберите автомобиль");
             if (_current.Customer == null)
                 errors.AppendLine("Выберите клиента");
             if (_current.Sale_date > DateTime.Now)

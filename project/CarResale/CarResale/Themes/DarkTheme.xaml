@@ -50,14 +50,6 @@
         </Style.Triggers>
     </Style>
 
-    <!--<Style TargetType="{x:Type TextBox}">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#282D33"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="BorderBrush" Value="White"/>
-    </Style>-->
     <Style TargetType="{x:Type TextBox}">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontFamily" Value="Halvetica" />
@@ -113,9 +105,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="{x:Type DataGrid}">
-        <Setter Property="Background" Value="#FF110D38"/>
+        <Setter Property="Background" Value="#FF323F4A"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="GridLinesVisibility" Value="None"/>
@@ -160,6 +152,7 @@
     </Style>
 
     <Style TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate />
@@ -168,20 +161,31 @@
     </Style>
 
     <Style TargetType="{x:Type DataGridCell}">
-        <Setter Property="Background" Value="#FF110D38"/>
+        <Setter Property="Background" Value="#FF323F4A"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="Background" Value="#FF283037"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style TargetType="{x:Type DataGridColumnHeader}">
-        <Setter Property="Background" Value="#FF110D38"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Background" Value="#FF323F4A"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

@@ -28,6 +28,7 @@ namespace CarResale.Pages
             InitializeComponent();
 
             ModelCB.IsEnabled = false;
+            _receiptInvoice.Date_of_acquisition = DateTime.Now;
 
             if (selected != null)
             {

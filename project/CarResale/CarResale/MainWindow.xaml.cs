@@ -28,10 +28,6 @@ namespace CarResale
             OrdersBtn.Click += (s, e) => SetPage(new Pages.OrderPage(), "Заказы");
             ReportsBtn.Click += (s, e) => SetPage(new Pages.ReportPage(), "Отчеты");
 
-            ThemeBtn.Click += (s, e) =>
-            {
-                ((App)Application.Current).ChangeTheme();
-            };
             Manager.MainFrame = MainFrame;
             SetPage(new Pages.OrderPage(), "Заказы");
         }
