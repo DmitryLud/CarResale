@@ -1,5 +1,6 @@
 ﻿using CarResale.DBModel;
 using CarResale.Windows;
+using CarResale.WordHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace CarResale.Pages
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };
+            ContractBtn.Click += (s, e) => { Contract.ReplaceText(DG.SelectedItem as Order); };
 
             MarkCB.ItemsSource = CarResaleEntities.GetContext().Marks.ToList();
 

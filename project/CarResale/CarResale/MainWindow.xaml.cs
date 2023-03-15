@@ -21,18 +21,19 @@ namespace CarResale
         {
             InitializeComponent();
 
-            CarsBtn.Click += (s, e) => SetPage(new Pages.CarPage(), "Cars");
-            MarksBtn.Click += (s, e) => SetPage(new Pages.MarkPage(), "Marks");
-            ModelsBtn.Click += (s, e) => SetPage(new Pages.ModelPage(), "Models");
-            ClientsBtn.Click += (s, e) => SetPage(new Pages.ClientPage(), "Clients");
-            OrdersBtn.Click += (s, e) => SetPage(new Pages.OrderPage(), "Orders");
-            ReportsBtn.Click += (s, e) => SetPage(new Pages.ReportPage(), "Reports");
+            CarsBtn.Click += (s, e) => SetPage(new Pages.CarPage(), "Автомобили");
+            MarksBtn.Click += (s, e) => SetPage(new Pages.MarkPage(), "Марки");
+            ModelsBtn.Click += (s, e) => SetPage(new Pages.ModelPage(), "Модели");
+            ClientsBtn.Click += (s, e) => SetPage(new Pages.ClientPage(), "Клиенты");
+            OrdersBtn.Click += (s, e) => SetPage(new Pages.OrderPage(), "Заказы");
+            ReportsBtn.Click += (s, e) => SetPage(new Pages.ReportPage(), "Отчеты");
 
             ThemeBtn.Click += (s, e) =>
             {
                 ((App)Application.Current).ChangeTheme();
             };
             Manager.MainFrame = MainFrame;
+            SetPage(new Pages.OrderPage(), "Заказы");
         }
 
         public void SetPage(Page newPage, string pageName)

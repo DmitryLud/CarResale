@@ -221,3 +221,12 @@ D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.OLE.I
 D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
 D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 D:\Car Resale\project\CarResale\CarResale\bin\Debug\Microsoft.MSXML.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Aspose.Words.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Aspose.Words.Pdf2Word.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Aspose.Words.xml
+D:\CarResale\CarResale\project\CarResale\CarResale\obj\Debug\CarResale.csproj.ResolveComReference.cache
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Doc.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Microsoft.mshtml.dll
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Doc.xml
+D:\CarResale\CarResale\project\CarResale\CarResale\bin\Debug\Spire.Pdf.xml

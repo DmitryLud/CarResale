@@ -3,17 +3,7 @@ using CarResale.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CarResale.Pages
 {
@@ -26,7 +16,7 @@ namespace CarResale.Pages
             DG.ItemsSource = CarResaleEntities.GetContext().Models.ToList();
 
             AddBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage()); };
-            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as Model)); };
+            ChangeBtn.Click += (s, e) => { Manager.MainFrame.Navigate(new ModelAddPage(DG.SelectedItem as DBModel.Model)); };
             DeleteBtn.Click += (s, e) => { Delete(); };
             ClearBtn.Click += (s, e) => { SetDefaulFilter(); };
             SearchBtn.Click += (s, e) => { Search(); };
@@ -54,7 +44,7 @@ namespace CarResale.Pages
         {
             if(FirstSymbolCB.SelectedValue == null) return;
             char selectedItem = FirstSymbolCB.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()[0];
-            DG.ItemsSource = (DG.ItemsSource as List<Model>).Where(x => x.Name[0] == selectedItem).ToList();
+            DG.ItemsSource = (DG.ItemsSource as List<DBModel.Model>).Where(x => x.Name[0] == selectedItem).ToList();
         }
 
         private void SelectedMark()

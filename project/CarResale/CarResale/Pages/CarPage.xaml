@@ -46,13 +46,14 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal"
                         HorizontalAlignment="Center">
 
-                <Button x:Name="AddBtn" Content="Add"
+                <Button x:Name="AddBtn" Content="Добавить"
                         Height="30" Width="120" Margin="10,0,10,0"/>
-                <Button x:Name="ChangeBtn" Content="Change"
+                <Button x:Name="ChangeBtn" Content="Изменить"
                         Height="30" Width="120" Margin="10,0,10,0"/>
-                <Button x:Name="DeleteBtn" Content="Delete"
+                <Button x:Name="DeleteBtn" Content="Удалить"
                         Height="30" Width="120" Margin="10,0,10,0"/>
-                <Button x:Name="ReceiptInvoiceBtn" Content="Receipt Invoice"
+                <Button x:Name="ReceiptInvoiceBtn" Content="Приходная накладная"
+                        FontSize="14"
                         Height="30" Width="140" Margin="10,0,10,0"/>
 
             </StackPanel>
@@ -63,7 +64,7 @@
                 <TextBox x:Name="SearchTB" Margin="10,0,10,0"
                          Height="30" Width="260"/>
 
-                <Button x:Name="SearchBtn" Content="Search"
+                <Button x:Name="SearchBtn" Content="Поиск"
                         Height="30" Width="120" Margin="10,0,10,0"/>
 
             </StackPanel>
@@ -124,7 +125,7 @@
                 <ComboBox x:Name="TransmissionCB"
                           Width="120" Height="20"/>
 
-                <Button x:Name="ClearBtn" Content="Clear"
+                <Button x:Name="ClearBtn" Content="Очистить"
                         Height="30" Width="120"
                         Margin="0,20,0,0"/>
 

@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace CarResale.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для ModelAddPage.xaml
-    /// </summary>
     public partial class ModelAddPage : Page
     {
         private Model _current = new Model();
